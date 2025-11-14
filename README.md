@@ -1,46 +1,29 @@
-# Astro Starter Kit: Basics
+# Mi-Portafolio-Web
 
-```sh
-pnpm create astro@latest -- --template basics
-```
+🌐 Portafolio Web – Dylan Gómez
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+Este proyecto es mi portafolio personal, desarrollado para presentar mis habilidades, proyectos y experiencia en el área de desarrollo web y tecnología. Incluye información sobre mí, mis trabajos más destacados y las tecnologías que utilizo en mis proyectos.
 
-## 🚀 Project Structure
+El objetivo de este portafolio es mostrar de manera clara y profesional mi capacidad para diseñar, desarrollar y desplegar aplicaciones web modernas, con enfoque en rendimiento, accesibilidad y buenas prácticas.
 
-Inside of your Astro project, you'll see the following folders and files:
+🔧 Tecnologías utilizadas
 
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src
-│   ├── assets
-│   │   └── astro.svg
-│   ├── components
-│   │   └── Welcome.astro
-│   ├── layouts
-│   │   └── Layout.astro
-│   └── pages
-│       └── index.astro
-└── package.json
-```
+-Astro
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+-Tailwind CSS
 
-## 🧞 Commands
+-JavaScript
 
-All commands are run from the root of the project, from a terminal:
+-HTML / CSS
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `pnpm install`             | Installs dependencies                            |
-| `pnpm dev`             | Starts local dev server at `localhost:4321`      |
-| `pnpm build`           | Build your production site to `./dist/`          |
-| `pnpm preview`         | Preview your build locally, before deploying     |
-| `pnpm astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `pnpm astro -- --help` | Get help using the Astro CLI                     |
+🚀 Características
 
-## 👀 Want to learn more?
+-Modo claro/oscuro
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+-Diseño responsivo
+
+-Secciones organizadas y fáciles de navegar
+
+-Animaciones y estilo moderno
+
+-Optimización para buen rendimiento
