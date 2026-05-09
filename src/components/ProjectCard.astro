@@ -3,27 +3,34 @@
 const { title, description, image, demoLink } = Astro.props;
 ---
 
-<article class="bg-white dark:bg-[#0f2b3b] rounded-xl p-6 transition duration-300 hover:-translate-y-1 hover:shadow-lg dark:hover:shadow-blue-500/20 h-full flex flex-col">
+<article
+  class="bg-white dark:bg-[#0f2b3b] rounded-xl p-6 transition duration-300 hover:-translate-y-1 hover:shadow-lg dark:hover:shadow-blue-500/20 h-full flex flex-col"
+>
   <div class="flex flex-col gap-6 flex-1">
     <!-- Info -->
-    <div class="flex flex-col gap-4">
-      <h3 class="text-xl font-semibold text-gray-900 dark:text-white">{title}</h3>
-      <p class="text-gray-600 dark:text-gray-300 text-sm md:text-base">{description}</p>
+    <div class="flex flex-col gap-4 grow">
+      <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
+        {title}
+      </h3>
+      <p
+        class="text-gray-600 dark:text-gray-300 text-sm md:text-base"
+        set:html={description}
+      />
     </div>
 
     <!-- Preview -->
     <div class="flex flex-col gap-4 mt-auto">
-      <img 
-        src={image} 
+      <img
+        src={image}
         alt={`Vista previa de ${title}`}
-        class="w-full h-auto rounded-lg shadow-sm hover:shadow-md transition"
+        class="w-full h-48 object-cover object-top rounded-lg shadow-sm hover:shadow-md transition"
         loading="lazy"
       />
-      
-      <a 
-        href={demoLink} 
-        target="_blank" 
-        rel="noopener noreferrer" 
+
+      <a
+        href={demoLink}
+        target="_blank"
+        rel="noopener noreferrer"
         class="inline-flex items-center gap-2 bg-[#E5EDF5] dark:bg-blue-600 text-gray-900 dark:text-white px-4 py-2 rounded-lg font-medium hover:bg-[#E5EDF5]/80 dark:hover:bg-blue-700 transition w-fit mx-auto"
       >
         Ver <span aria-hidden="true">→</span>

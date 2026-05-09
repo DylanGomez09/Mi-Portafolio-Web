@@ -1,0 +1,29 @@
+---
+import MentionCard from "../components/ProjectCard.astro";
+
+const mentions = [
+  {
+    title: "El Diario Sur",
+    description:
+      'Colaboré en el desarrollo de <span class="text-blue-400 font-medium">SIA-TEC</span>, un sistema para automatizar la atención en centros de salud (CAPS). El proyecto fue destacado por <span class="text-blue-400 font-medium">El Diario Sur</span> debido a su impacto en la comunidad y la optimización de tiempos en guardias médicas.',
+    image: "/mentions-img/el_diario_sur.webp",
+    demoLink:
+      "https://www.eldiariosur.com/san-vicente/2026/4/29/alumnos-de-la-tecnica-de-san-vicente-desarrollaron-un-programa-para-acelerar-la-atencion-en-los-caps-79546.html",
+  },
+  {
+    title: "CoreByte",
+    description:
+      'Desarrollé la arquitectura <span class="text-blue-400 font-medium">Frontend</span> de esta aplicación escolar en conjunto con un profesor. El sistema permite la administración docente y la inscripción de alumnos a clases tecnológicas, priorizando una interfaz intuitiva para el usuario.',
+    image: "/mentions-img/corebyte.webp",
+    demoLink: "https://www.corebyte.com.ar/#colaboradores",
+  },
+];
+---
+
+<section id="mentions" class="max-w-[1200px] mx-auto py-16 px-4 md:px-8">
+  <h2 class="font-bold text-2xl mb-8 md:mb-12">Menciones</h2>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+    {mentions.map((mention) => <MentionCard {...mention} />)}
+  </div>
+</section>
