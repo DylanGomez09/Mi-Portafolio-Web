@@ -4,26 +4,30 @@ import ProjectCard from "../components/ProjectCard.astro";
 const projects = [
   {
     title: "YF Portfolio | Sitio Web Personal",
-    description: "Landing page para mostrar habilidades, proyectos y contacto para una fotógrafa profesional.",
+    description:
+      "Landing page para mostrar habilidades, proyectos y contacto para una fotógrafa profesional.",
     image: "/projects-img/yf-portfolio.webp",
     demoLink: "https://yfuentealba.vercel.app/",
   },
   {
     title: "Aberturas MG | E-commerce Store",
-    description: "Un catálogo de productos para un emprendimiento llamado Aberturas MG, integrado con WhatsApp.",
+    description:
+      "Un catálogo de productos para un emprendimiento llamado Aberturas MG, integrado con WhatsApp.",
     image: "/projects-img/aberturas-mg.webp",
     demoLink: "https://aberturasmg.netlify.app/",
   },
   {
     title: "SIA-TEC | Blog",
-    description: "Un blog para un proyecto escolar llamado SIA-TEC. Un software para la gestión de turnos en un hospital con IA.",
+    description:
+      "Un blog para un proyecto escolar llamado SIA-TEC. Un software para la gestión de turnos en un hospital con IA.",
     image: "/projects-img/siatec-web.webp",
     demoLink: "https://siatec.netlify.app/",
   },
   {
     title: "SIA-TEC | App",
-    description: "Una aplicación para la gestión de turnos en hospitales con Inteligencia Artificial.",
-    image: "/projects-img/siatec-app.webp",
+    description:
+      "Una aplicación para la gestión de turnos en hospitales con Inteligencia Artificial.",
+    image: "/projects-img/siatec-app-v2.webp",
     demoLink: "https://github.com/DylanGomez09/SIA-TEC-App.git",
   },
 ];
@@ -33,8 +37,6 @@ const projects = [
   <h2 class="font-bold text-2xl mb-8 md:mb-12">Proyectos</h2>
 
   <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-    {projects.map(project => (
-      <ProjectCard {...project} />
-    ))}
+    {projects.map((project) => <ProjectCard {...project} />)}
   </div>
 </section>
