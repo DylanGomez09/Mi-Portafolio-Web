@@ -1,13 +1,24 @@
 ---
-// src/components/ProjectCard.astro
-const { title, description, image, demoLink } = Astro.props;
+export interface Props {
+  title: string;
+  description: string;
+  image: string;
+  demoLink: string;
+  t?: {
+    view: string;
+    previewAlt: string;
+  };
+}
+
+const { title, description, image, demoLink, t } = Astro.props;
+const viewText = t?.view ?? "Ver";
+const altText = t?.previewAlt?.replace("{title}", title) ?? `Vista previa de ${title}`;
 ---
 
 <article
   class="bg-[#FAF7F4] dark:bg-[#1E1A17] rounded-xl p-6 transition duration-300 hover:-translate-y-1 hover:shadow-lg dark:hover:shadow-[#C8622E]/20 h-full flex flex-col"
 >
   <div class="flex flex-col gap-6 flex-1">
-    <!-- Info -->
     <div class="flex flex-col gap-4 grow">
       <h3 class="text-xl font-semibold text-[#1A1614] dark:text-[#FAF7F4]">
         {title}
@@ -18,11 +29,10 @@ const { title, description, image, demoLink } = Astro.props;
       />
     </div>
 
-    <!-- Preview -->
     <div class="flex flex-col gap-4 mt-auto">
       <img
         src={image}
-        alt={`Vista previa de ${title}`}
+        alt={altText}
         class="w-full h-48 object-cover object-top rounded-lg shadow-sm hover:shadow-md transition"
         loading="lazy"
       />
@@ -33,7 +43,7 @@ const { title, description, image, demoLink } = Astro.props;
         rel="noopener noreferrer"
         class="inline-flex items-center gap-2 bg-[#EDE8E3] dark:bg-[#C8622E] text-[#1A1614] dark:text-[#FAF7F4] px-4 py-2 rounded-lg font-medium hover:bg-[#EDE8E3]/80 dark:hover:bg-[#C8622E]/90 transition w-fit mx-auto"
       >
-        Ver <span aria-hidden="true">→</span>
+        {viewText} <span aria-hidden="true">→</span>
       </a>
     </div>
   </div>

@@ -1,0 +1,125 @@
+{
+  "lang": "es",
+  "layout": {
+    "lang": "es",
+    "title": "Portafolio de Dylan Gómez | Desarrollador Full Stack",
+    "description": "Portafolio personal de Dylan Gómez, desarrollador Full Stack. Explora mis proyectos, habilidades y contáctame para colaboraciones.",
+    "keywords": "Dylan Gómez, desarrollador Full Stack, portafolio, proyectos, habilidades, contacto",
+    "author": "Dylan Gómez",
+    "ogTitle": "Portafolio de Dylan Gómez",
+    "ogDescription": "Descubre mis proyectos y habilidades como desarrollador Full Stack."
+  },
+  "nav": {
+    "lang": "es",
+    "logoAlt": "DG logo",
+    "home": "Inicio",
+    "about": "Sobre mí",
+    "skills": "Habilidades",
+    "projects": "Proyectos",
+    "mentions": "Menciones",
+    "contact": "Contacto",
+    "ariaNavDesktop": "Navegación principal",
+    "ariaNavMobile": "Menú móvil",
+    "ariaMenuBtn": "Abrir menú",
+    "ariaLogo": "Ir al inicio",
+    "ariaGithub": "Github",
+    "ariaLinkedin": "LinkedIn"
+  },
+  "hero": {
+    "profileAlt": "Foto de perfil de Dylan Gómez",
+    "subtitle": "Desarrollador Full Stack | Creando experiencias webs únicas",
+    "cta": "Ver proyectos"
+  },
+  "about": {
+    "title": "Sobre mí",
+    "paragraphs": [
+      "Hola, soy <span class=\"text-[#D4703A] font-semibold\">Dylan Ezequiel Gómez</span>, un desarrollador de software apasionado por crear experiencias digitales únicas, funcionales y de alto rendimiento. Me especializo en el desarrollo <span class=\"text-[#D4703A] font-medium\">Full-Stack</span>, transformando ideas complejas en aplicaciones web atractivas, intuitivas y totalmente responsivas, aplicando siempre <span class=\"text-[#D4703A] font-medium\">buenas prácticas de arquitectura y SEO</span>.",
+      "Me motiva mantenerme en <span class=\"text-[#D4703A] font-medium\">constante aprendizaje</span>, explorando tecnologías emergentes (como la integración de Inteligencia Artificial) para ofrecer soluciones innovadoras, eficientes y escalables.",
+      "Entre mis proyectos destacados se encuentra <a href=\"https://siatec.netlify.app/\" target=\"_blank\" rel=\"noopener\" class=\"text-[#D4703A] cursor-pointer font-medium hover:text-[#D4703A]/80 transition\">S.I.A.T.E.C.</a>, una plataforma para la gestión de turnos médicos que fue <span class=\"text-[#D4703A] font-medium\">reconocida en la Feria de Ciencias y Tecnología 2025 en San Vicente, Argentina</span>. Esta experiencia me permitió exponer mi trabajo en diversos eventos y conectar con profesionales del sector.",
+      "<span class=\"text-[#D4703A] font-semibold\">Cuento</span> con el respaldo de mi título de <span class=\"text-[#D4703A] font-semibold\">Técnico en Informática</span>, el cual me ha brindado una sólida base técnica y lógica para afrontar con éxito cualquier desafío en el desarrollo de software."
+    ]
+  },
+  "skills": {
+    "title": "Skills"
+  },
+  "projects": {
+    "title": "Proyectos",
+    "list": [
+      {
+        "title": "TRAVIO AI | App Web",
+        "description": "Aplicación web Full-Stack e2e que utiliza Inteligencia Artificial (Gemini API) para generar itinerarios de viaje diarios totalmente personalizados en segundos según el presupuesto e intereses del usuario",
+        "image": "/projects-img/travio_app.webp",
+        "demoLink": "https://travio-ai-app.vercel.app/es"
+      },
+      {
+        "title": "YF Portfolio | Sitio Web Personal",
+        "description": "Landing page para mostrar habilidades, proyectos y contacto para una fotógrafa profesional.",
+        "image": "/projects-img/yf-portfolio.webp",
+        "demoLink": "https://yfuentealba.vercel.app/"
+      },
+      {
+        "title": "Aberturas MG | E-commerce Store",
+        "description": "Un catálogo de productos para un emprendimiento llamado Aberturas MG, integrado con WhatsApp.",
+        "image": "/projects-img/aberturas-mg.webp",
+        "demoLink": "https://aberturasmg.netlify.app/"
+      },
+      {
+        "title": "SIA-TEC | Blog",
+        "description": "Blog desarrollado para el proyecto escolar SIA-TEC, una plataforma orientada a la gestión automatizada de turnos hospitalarios mediante IA.",
+        "image": "/projects-img/siatec-web.webp",
+        "demoLink": "https://siatec.netlify.app/"
+      },
+      {
+        "title": "SIA-TEC | App",
+        "description": "Una aplicación para la gestión de turnos en hospitales con Inteligencia Artificial.",
+        "image": "/projects-img/siatec-app-v2.webp",
+        "demoLink": "https://github.com/DylanGomez09/SIA-TEC-App.git"
+      }
+    ]
+  },
+  "mentions": {
+    "title": "Menciones",
+    "list": [
+      {
+        "title": "📰El Diario Sur",
+        "description": "Colaboré en el desarrollo de <span class=\"text-[#D4703A] font-medium\">SIA-TEC</span>, un sistema para automatizar la atención en centros de salud (CAPS). El proyecto fue destacado por <span class=\"text-[#D4703A] font-medium\">El Diario Sur</span> debido a su impacto en la comunidad y la optimización de tiempos en guardias médicas.",
+        "image": "/mentions-img/el_diario_sur.webp",
+        "demoLink": "https://www.eldiariosur.com/san-vicente/2026/4/29/alumnos-de-la-tecnica-de-san-vicente-desarrollaron-un-programa-para-acelerar-la-atencion-en-los-caps-79546.html"
+      },
+      {
+        "title": "💻CoreByte",
+        "description": "Desarrollé la arquitectura <span class=\"text-[#D4703A] font-medium\">Frontend</span> de esta aplicación escolar en conjunto con un profesor. El sistema permite la administración docente y la inscripción de alumnos a clases tecnológicas, priorizando una interfaz intuitiva para el usuario.",
+        "image": "/mentions-img/corebyte.webp",
+        "demoLink": "https://www.corebyte.com.ar/#colaboradores"
+      }
+    ]
+  },
+  "contact": {
+    "title": "Contacto",
+    "subtitle": "Información de contacto",
+    "formName": "Nombre",
+    "formEmail": "Email",
+    "formMessage": "Mensaje",
+    "placeholderName": "Tu nombre",
+    "placeholderEmail": "Tu email",
+    "placeholderMessage": "Tu mensaje",
+    "submit": "Enviar Mensaje",
+    "emailAddress": "gomezdylan354@gmail.com",
+    "phoneNumber": "+54 9 11 3118 1184"
+  },
+  "footer": {
+    "navAria": "Footer",
+    "home": "Inicio",
+    "projects": "Proyectos",
+    "contact": "Contacto",
+    "ariaLinkedin": "LinkedIn — abre en nueva pestaña",
+    "ariaGithub": "GitHub — abre en nueva pestaña",
+    "linkedinTitle": "LinkedIn",
+    "githubTitle": "GitHub",
+    "copyright": "© {year} Dylan Gómez. Todos los derechos reservados."
+  },
+  "card": {
+    "view": "Ver",
+    "previewAlt": "Vista previa de {title}"
+  }
+}

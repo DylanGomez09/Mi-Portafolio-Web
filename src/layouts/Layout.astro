@@ -1,9 +1,23 @@
 ---
 import "../styles/global.css";
+
+export interface Props {
+  t: {
+    lang: string;
+    title: string;
+    description: string;
+    keywords: string;
+    author: string;
+    ogTitle: string;
+    ogDescription: string;
+  };
+}
+
+const { t } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="es" class="dark scroll-smooth">
+<html lang={t.lang} class="dark scroll-smooth">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
@@ -13,29 +27,17 @@ import "../styles/global.css";
       href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,100..900;1,100..900&display=swap"
       rel="stylesheet"
     />
-    <title>Portafolio de Dylan Gómez | Desarrollador Full Stack</title>
-    <meta
-      name="description"
-      content="Portafolio personal de Dylan Gómez, desarrollador Full Stack. Explora mis proyectos, habilidades y contáctame para colaboraciones."
-    />
-    <meta
-      name="keywords"
-      content="Dylan Gómez, desarrollador Full Stack, portafolio, proyectos, habilidades, contacto"
-    />
-    <meta name="author" content="Dylan Gómez" />
-    <meta property="og:title" content="Portafolio de Dylan Gómez" />
-    <meta
-      property="og:description"
-      content="Descubre mis proyectos y habilidades como desarrollador Full Stack."
-    />
+    <title>{t.title}</title>
+    <meta name="description" content={t.description} />
+    <meta name="keywords" content={t.keywords} />
+    <meta name="author" content={t.author} />
+    <meta property="og:title" content={t.ogTitle} />
+    <meta property="og:description" content={t.ogDescription} />
     <meta property="og:image" content="/icons/dg-logo.png" />
     <meta property="og:url" content="https://www.dylandev.online" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Portafolio de Dylan Gómez" />
-    <meta
-      name="twitter:description"
-      content="Explora mis proyectos y habilidades como desarrollador Full Stack."
-    />
+    <meta name="twitter:title" content={t.ogTitle} />
+    <meta name="twitter:description" content={t.ogDescription} />
     <meta name="twitter:image" content="/icons/dg-logo.png" />
     <meta
       name="google-site-verification"

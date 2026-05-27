@@ -1,20 +1,32 @@
+---
+export interface Props {
+  t: {
+    profileAlt: string;
+    subtitle: string;
+    cta: string;
+  };
+}
+
+const { t } = Astro.props;
+---
+
 <section id="home" class="reveal flex flex-col md:flex-row justify-center items-center gap-8 py-16 mb-16 md:mb-32 mt-24 md:mt-36 px-4">
     <img 
         src="/img-perfil-2.webp" 
-        alt="Foto de perfil de Dylan Gómez" 
+        alt={t.profileAlt}
         class="w-52 md:w-80 h-auto rounded-full shadow-lg hover:scale-105 transition duration-500"
     />
     
     <div class="flex flex-col items-center text-center gap-6">
         <h1 class="font-extrabold text-4xl md:text-5xl">Dylan Gómez</h1>
         <p class="text-lg text-[#1A1614] dark:text-[#FAF7F4]/80 max-w-md">
-            Desarrollador Full Stack | Creando experiencias webs únicas
+            {t.subtitle}
         </p>
         <a 
             href="#projects" 
             class="bg-[#C8622E] px-6 py-3 rounded-xl font-medium text-[#FAF7F4] hover:bg-[#C8622E]/90 hover:scale-105 transition duration-300 shadow-md"
         >
-            Ver proyectos
+            {t.cta}
         </a>
     </div>
 </section>

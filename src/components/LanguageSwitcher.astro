@@ -1,0 +1,18 @@
+---
+export interface Props {
+  currentLang: string;
+}
+
+const { currentLang } = Astro.props;
+const targetLang = currentLang === "es" ? "en" : "es";
+const targetUrl = targetLang === "es" ? "/" : "/en/";
+const label = targetLang === "es" ? "ES" : "EN";
+---
+
+<a
+  href={targetUrl}
+  class="px-2 py-1 text-xs font-semibold uppercase tracking-wider rounded border border-current text-[#1A1614] dark:text-[#FAF7F4] hover:bg-[#EDE8E3] dark:hover:bg-[#1E1A17] transition"
+  aria-label={targetLang === "es" ? "Cambiar a español" : "Switch to English"}
+>
+  {label}
+</a>

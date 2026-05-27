@@ -1,3 +1,28 @@
+---
+import LanguageSwitcher from "../components/LanguageSwitcher.astro";
+
+export interface Props {
+  t: {
+    lang: string;
+    logoAlt: string;
+    home: string;
+    about: string;
+    skills: string;
+    projects: string;
+    mentions: string;
+    contact: string;
+    ariaNavDesktop: string;
+    ariaNavMobile: string;
+    ariaMenuBtn: string;
+    ariaLogo: string;
+    ariaGithub: string;
+    ariaLinkedin: string;
+  };
+}
+
+const { t } = Astro.props;
+---
+
 <header
   id="header"
   class="fixed top-0 left-0 right-0 bg-transparent backdrop-blur-md z-50 shadow-sm"
@@ -9,15 +34,15 @@
     <a
       href="#home"
       class="flex items-center gap-3 transition-all"
-      aria-label="Ir al inicio"
+      aria-label={t.ariaLogo}
     >
-      <img id="logo" src="/icons/dg-logo.png" alt="DG logo" class="w-7 h-7" />
+      <img id="logo" src="/icons/dg-logo.png" alt={t.logoAlt} class="w-7 h-7" />
     </a>
 
     <!-- Desktop nav -->
     <nav
       class="hidden md:flex items-center gap-6"
-      aria-label="Navegación principal"
+      aria-label={t.ariaNavDesktop}
     >
       <ul class="flex items-center gap-6 text-sm font-medium">
         <li>
@@ -25,7 +50,7 @@
             href="#home"
             data-nav="#home"
             class="text-[#1A1614] dark:text-[#FAF7F4] hover:text-[#C8622E] dark:hover:text-[#C8622E] transition"
-            >Inicio</a
+            >{t.home}</a
           >
         </li>
         <li>
@@ -33,7 +58,7 @@
             href="#about"
             data-nav="#about"
             class="text-[#1A1614] dark:text-[#FAF7F4] hover:text-[#C8622E] dark:hover:text-[#C8622E] transition"
-            >Sobre mí</a
+            >{t.about}</a
           >
         </li>
         <li>
@@ -41,7 +66,7 @@
             href="#skills"
             data-nav="#skills"
             class="text-[#1A1614] dark:text-[#FAF7F4] hover:text-[#C8622E] dark:hover:text-[#C8622E] transition"
-            >Habilidades</a
+            >{t.skills}</a
           >
         </li>
         <li>
@@ -49,7 +74,7 @@
             href="#projects"
             data-nav="#projects"
             class="text-[#1A1614] dark:text-[#FAF7F4] hover:text-[#C8622E] dark:hover:text-[#C8622E] transition"
-            >Proyectos</a
+            >{t.projects}</a
           >
         </li>
         <li>
@@ -57,7 +82,7 @@
             href="#mentions"
             data-nav="#mentions"
             class="text-[#1A1614] dark:text-[#FAF7F4] hover:text-[#C8622E] dark:hover:text-[#C8622E] transition"
-            >Menciones</a
+            >{t.mentions}</a
           >
         </li>
         <li>
@@ -65,7 +90,7 @@
             href="#contact"
             data-nav="#contact"
             class="text-[#1A1614] dark:text-[#FAF7F4] hover:text-[#C8622E] dark:hover:text-[#C8622E] transition"
-            >Contacto</a
+            >{t.contact}</a
           >
         </li>
       </ul>
@@ -76,11 +101,11 @@
           target="_blank"
           rel="noopener noreferrer"
           class="p-2 rounded bg-[#EDE8E3]/90 dark:bg-transparent hover:scale-110 transition"
-          aria-label="Github"
+          aria-label={t.ariaGithub}
         >
           <img
             src="/icons/github.svg"
-            alt="GitHub"
+            alt={t.ariaGithub}
             class="w-4 h-4 dark:filter dark:invert"
           />
         </a>
@@ -90,14 +115,15 @@
           target="_blank"
           rel="noopener noreferrer"
           class="p-2 rounded bg-[#EDE8E3]/90 dark:bg-transparent hover:scale-110 transition"
-          aria-label="LinkedIn"
+          aria-label={t.ariaLinkedin}
         >
           <img
             src="/icons/linkedin.svg"
-            alt="LinkedIn"
+            alt={t.ariaLinkedin}
             class="w-4 h-4 dark:filter dark:invert"
           />
         </a>
+        <LanguageSwitcher currentLang={Astro.props.t.lang || "es"} />
         <button
           class="hidden dark:inline-block cursor-pointer hover:scale-110 transition p-2 rounded bg-[#EDE8E3]/90 dark:bg-transparent"
           id="bottomLight"
@@ -139,6 +165,7 @@
 
     <!-- Mobile controls -->
     <div class="flex items-center gap-2 md:hidden">
+      <LanguageSwitcher currentLang={Astro.props.t.lang || "es"} />
       <button
         class="hidden dark:inline-block cursor-pointer hover:scale-110 transition"
         id="bottomLight-mobile"
@@ -179,7 +206,7 @@
         id="menu-button"
         aria-expanded="false"
         aria-controls="mobile-menu"
-        aria-label="Abrir menú"
+        aria-label={t.ariaMenuBtn}
         class="p-2 rounded bg-[#EDE8E3]/90 dark:bg-transparent"
       >
         <svg
@@ -199,59 +226,73 @@
   </div>
 
   <!-- Mobile menu -->
-  <div id="mobile-menu" class="hidden md:hidden">
+  <div
+    id="mobile-menu"
+    class="md:hidden max-h-0 opacity-0 overflow-hidden transition-all duration-300 ease-in-out pointer-events-none"
+  >
     <div
       class="max-w-[1200px] mx-auto bg-[#FAF7F4]/95 dark:bg-[#141414] rounded-b-lg shadow-md"
     >
-      <nav class="flex flex-col gap-1 p-4" aria-label="Menú móvil">
+      <nav class="flex flex-col items-center gap-1 p-4" aria-label={t.ariaNavMobile}>
         <a
           href="#home"
           data-nav="#home"
           class="block py-2 px-3 rounded nav-link-mobile text-[#1A1614] dark:text-[#FAF7F4] hover:bg-[#EDE8E3] dark:hover:bg-[#1E1A17] transition"
-          >Inicio</a
+          >{t.home}<span class="nav-dot"> ●</span></a
         >
+      </li>
+      <li>
         <a
           href="#about"
           data-nav="#about"
           class="block py-2 px-3 rounded nav-link-mobile text-[#1A1614] dark:text-[#FAF7F4] hover:bg-[#EDE8E3] dark:hover:bg-[#1E1A17] transition"
-          >Sobre mí</a
+          >{t.about}<span class="nav-dot"> ●</span></a
         >
+      </li>
+      <li>
         <a
           href="#skills"
           data-nav="#skills"
           class="block py-2 px-3 rounded nav-link-mobile text-[#1A1614] dark:text-[#FAF7F4] hover:bg-[#EDE8E3] dark:hover:bg-[#1E1A17] transition"
-          >Habilidades</a
+          >{t.skills}<span class="nav-dot"> ●</span></a
         >
+      </li>
+      <li>
         <a
           href="#projects"
           data-nav="#projects"
           class="block py-2 px-3 rounded nav-link-mobile text-[#1A1614] dark:text-[#FAF7F4] hover:bg-[#EDE8E3] dark:hover:bg-[#1E1A17] transition"
-          >Proyectos</a
+          >{t.projects}<span class="nav-dot"> ●</span></a
         >
+      </li>
+      <li>
         <a
           href="#mentions"
           data-nav="#mentions"
           class="block py-2 px-3 rounded nav-link-mobile text-[#1A1614] dark:text-[#FAF7F4] hover:bg-[#EDE8E3] dark:hover:bg-[#1E1A17] transition"
-          >Menciones</a
+          >{t.mentions}<span class="nav-dot"> ●</span></a
         >
+      </li>
+      <li>
         <a
           href="#contact"
           data-nav="#contact"
           class="block py-2 px-3 rounded nav-link-mobile text-[#1A1614] dark:text-[#FAF7F4] hover:bg-[#EDE8E3] dark:hover:bg-[#1E1A17] transition"
-          >Contacto</a
+          >{t.contact}<span class="nav-dot"> ●</span></a
         >
 
-        <div class="flex items-center gap-3 pt-2">
+
+        <div class="flex items-center justify-center gap-3 pt-2">
           <a
             href="https://github.com/DylanGomez09"
             target="_blank"
             rel="noopener noreferrer"
             class="p-2 rounded bg-[#EDE8E3]/90 dark:bg-transparent"
-            aria-label="Github"
+            aria-label={t.ariaGithub}
           >
             <img
               src="/icons/github.svg"
-              alt="GitHub"
+              alt={t.ariaGithub}
               class="w-4 h-4 dark:filter dark:invert"
             />
           </a>
@@ -260,19 +301,49 @@
             target="_blank"
             rel="noopener noreferrer"
             class="p-2 rounded bg-[#EDE8E3]/90 dark:bg-transparent"
-            aria-label="LinkedIn"
+            aria-label={t.ariaLinkedin}
           >
             <img
               src="/icons/linkedin.svg"
-              alt="LinkedIn"
-              class="w-4 h-4 dark:filter dark:invert"
-            />
-          </a>
+            alt={t.ariaLinkedin}
+            class="w-4 h-4 dark:filter dark:invert"
+          />
+        </a>
         </div>
       </nav>
     </div>
   </div>
 </header>
+
+<!-- Scroll to top -->
+<button
+  id="scroll-top-btn"
+  aria-label="Ir al inicio"
+  class="fixed bottom-6 right-6 z-50 w-12 h-12 rounded-full flex items-center justify-center opacity-0 pointer-events-none transition-all duration-300 bg-[#C8622E] text-white shadow-lg hover:scale-110"
+>
+  <svg class="absolute inset-0 w-full h-full -rotate-90" viewBox="0 0 36 36">
+    <circle
+      id="scroll-progress-bg"
+      cx="18" cy="18" r="16"
+      fill="none"
+      stroke="rgba(255,255,255,0.2)"
+      stroke-width="2"
+    />
+    <circle
+      id="scroll-progress"
+      cx="18" cy="18" r="16"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-dasharray="100.53"
+      stroke-dashoffset="100.53"
+      stroke-linecap="round"
+    />
+  </svg>
+  <svg class="w-5 h-5 relative z-10" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M12 19V5M5 12l7-7 7 7"/>
+  </svg>
+</button>
 
 <script>
   document.addEventListener("DOMContentLoaded", () => {
@@ -281,13 +352,26 @@
 
     // ========== MENÚ MÓVIL ==========
     function openMenu() {
-      mobileMenu?.classList.remove("hidden");
+      mobileMenu?.classList.add("open");
       menuBtn?.setAttribute("aria-expanded", "true");
+      document.addEventListener("click", handleClickOutside);
     }
 
     function closeMenu() {
-      mobileMenu?.classList.add("hidden");
+      mobileMenu?.classList.remove("open");
       menuBtn?.setAttribute("aria-expanded", "false");
+      document.removeEventListener("click", handleClickOutside);
+    }
+
+    function handleClickOutside(e) {
+      if (
+        mobileMenu &&
+        menuBtn &&
+        !mobileMenu.contains(e.target) &&
+        !menuBtn.contains(e.target)
+      ) {
+        closeMenu();
+      }
     }
 
     function toggleMenu() {
@@ -311,6 +395,37 @@
       if (window.innerWidth >= 768) {
         closeMenu();
       }
+    });
+
+    // ========== SCROLL TO TOP ==========
+    const scrollBtn = document.getElementById("scroll-top-btn");
+    const progressCircle = document.getElementById("scroll-progress");
+    const circumference = 100.53;
+
+    function updateScrollBtn() {
+      const scrollTop = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+
+      if (scrollTop > 400) {
+        scrollBtn?.classList.remove("opacity-0", "pointer-events-none");
+        scrollBtn?.classList.add("opacity-100", "pointer-events-auto");
+      } else {
+        scrollBtn?.classList.add("opacity-0", "pointer-events-none");
+        scrollBtn?.classList.remove("opacity-100", "pointer-events-auto");
+      }
+
+      if (progressCircle && docHeight > 0) {
+        const progress = Math.min(scrollTop / docHeight, 1);
+        const offset = circumference * (1 - progress);
+        progressCircle.setAttribute("stroke-dashoffset", String(offset));
+      }
+    }
+
+    window.addEventListener("scroll", updateScrollBtn, { passive: true });
+    updateScrollBtn();
+
+    scrollBtn?.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
     });
 
     // ========== SCROLL SPY ==========
@@ -407,3 +522,24 @@
     localStorage.setItem("color-scheme", "dark");
   });
 </script>
+
+<style>
+  #mobile-menu.open {
+    max-height: 100vh;
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  #mobile-menu li {
+    list-style: none;
+  }
+
+  .nav-link-mobile .nav-dot {
+    display: inline;
+    color: #C8622E;
+  }
+
+  .nav-link-mobile.font-semibold .nav-dot {
+    display: none;
+  }
+</style>

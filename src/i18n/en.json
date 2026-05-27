@@ -1,0 +1,125 @@
+{
+  "lang": "en",
+  "layout": {
+    "lang": "en",
+    "title": "Dylan Gómez's Portfolio | Full Stack Developer",
+    "description": "Dylan Gómez's personal portfolio, Full Stack developer. Explore my projects, skills and get in touch for collaborations.",
+    "keywords": "Dylan Gómez, Full Stack developer, portfolio, projects, skills, contact",
+    "author": "Dylan Gómez",
+    "ogTitle": "Dylan Gómez's Portfolio",
+    "ogDescription": "Discover my projects and skills as a Full Stack developer."
+  },
+  "nav": {
+    "lang": "en",
+    "logoAlt": "DG logo",
+    "home": "Home",
+    "about": "About",
+    "skills": "Skills",
+    "projects": "Projects",
+    "mentions": "Mentions",
+    "contact": "Contact",
+    "ariaNavDesktop": "Main navigation",
+    "ariaNavMobile": "Mobile menu",
+    "ariaMenuBtn": "Open menu",
+    "ariaLogo": "Go to home",
+    "ariaGithub": "Github",
+    "ariaLinkedin": "LinkedIn"
+  },
+  "hero": {
+    "profileAlt": "Profile picture of Dylan Gómez",
+    "subtitle": "Full Stack Developer | Creating unique web experiences",
+    "cta": "View projects"
+  },
+  "about": {
+    "title": "About me",
+    "paragraphs": [
+      "Hi, I'm <span class=\"text-[#D4703A] font-semibold\">Dylan Ezequiel Gómez</span>, a software developer passionate about creating unique, functional and high-performance digital experiences. I specialize in <span class=\"text-[#D4703A] font-medium\">Full-Stack</span> development, turning complex ideas into attractive, intuitive and fully responsive web applications, always applying <span class=\"text-[#D4703A] font-medium\">good architecture and SEO practices</span>.",
+      "I am motivated by <span class=\"text-[#D4703A] font-medium\">constant learning</span>, exploring emerging technologies (such as Artificial Intelligence integration) to deliver innovative, efficient and scalable solutions.",
+      "Among my notable projects is <a href=\"https://siatec.netlify.app/\" target=\"_blank\" rel=\"noopener\" class=\"text-[#D4703A] cursor-pointer font-medium hover:text-[#D4703A]/80 transition\">S.I.A.T.E.C.</a>, a platform for medical appointment management that was <span class=\"text-[#D4703A] font-medium\">recognized at the 2025 Science and Technology Fair in San Vicente, Argentina</span>. This experience allowed me to showcase my work at various events and connect with industry professionals.",
+      "I have the backing of my <span class=\"text-[#D4703A] font-semibold\">Computer Technician</span> degree, which has given me a solid technical and logical foundation to successfully face any challenge in software development."
+    ]
+  },
+  "skills": {
+    "title": "Skills"
+  },
+  "projects": {
+    "title": "Projects",
+    "list": [
+      {
+        "title": "TRAVIO AI | Web App",
+        "description": "Full-Stack e2e web application that uses Artificial Intelligence (Gemini API) to generate fully personalized daily travel itineraries in seconds based on the user's budget and interests.",
+        "image": "/projects-img/travio_app.webp",
+        "demoLink": "https://travio-ai-app.vercel.app/es"
+      },
+      {
+        "title": "YF Portfolio | Personal Website",
+        "description": "Landing page to showcase skills, projects and contact for a professional photographer.",
+        "image": "/projects-img/yf-portfolio.webp",
+        "demoLink": "https://yfuentealba.vercel.app/"
+      },
+      {
+        "title": "Aberturas MG | E-commerce Store",
+        "description": "A product catalog for a business called Aberturas MG, integrated with WhatsApp.",
+        "image": "/projects-img/aberturas-mg.webp",
+        "demoLink": "https://aberturasmg.netlify.app/"
+      },
+      {
+        "title": "SIA-TEC | Blog",
+        "description": "Blog developed for the SIA-TEC school project, a platform focused on AI-powered automated hospital appointment management.",
+        "image": "/projects-img/siatec-web.webp",
+        "demoLink": "https://siatec.netlify.app/"
+      },
+      {
+        "title": "SIA-TEC | App",
+        "description": "An application for hospital appointment management with Artificial Intelligence.",
+        "image": "/projects-img/siatec-app-v2.webp",
+        "demoLink": "https://github.com/DylanGomez09/SIA-TEC-App.git"
+      }
+    ]
+  },
+  "mentions": {
+    "title": "Mentions",
+    "list": [
+      {
+        "title": "📰El Diario Sur",
+        "description": "I collaborated on the development of <span class=\"text-[#D4703A] font-medium\">SIA-TEC</span>, a system to automate healthcare at primary care centers (CAPS). The project was highlighted by <span class=\"text-[#D4703A] font-medium\">El Diario Sur</span> due to its impact on the community and the optimization of medical shift wait times.",
+        "image": "/mentions-img/el_diario_sur.webp",
+        "demoLink": "https://www.eldiariosur.com/san-vicente/2026/4/29/alumnos-de-la-tecnica-de-san-vicente-desarrollaron-un-programa-para-acelerar-la-atencion-en-los-caps-79546.html"
+      },
+      {
+        "title": "💻CoreByte",
+        "description": "I developed the <span class=\"text-[#D4703A] font-medium\">Frontend</span> architecture of this school application together with a teacher. The system allows teacher administration and enrollment of students in technology classes, prioritizing an intuitive interface for the user.",
+        "image": "/mentions-img/corebyte.webp",
+        "demoLink": "https://www.corebyte.com.ar/#colaboradores"
+      }
+    ]
+  },
+  "contact": {
+    "title": "Contact",
+    "subtitle": "Contact information",
+    "formName": "Name",
+    "formEmail": "Email",
+    "formMessage": "Message",
+    "placeholderName": "Your name",
+    "placeholderEmail": "Your email",
+    "placeholderMessage": "Your message",
+    "submit": "Send Message",
+    "emailAddress": "gomezdylan354@gmail.com",
+    "phoneNumber": "+54 9 11 3118 1184"
+  },
+  "footer": {
+    "navAria": "Footer",
+    "home": "Home",
+    "projects": "Projects",
+    "contact": "Contact",
+    "ariaLinkedin": "LinkedIn — opens in new tab",
+    "ariaGithub": "GitHub — opens in new tab",
+    "linkedinTitle": "LinkedIn",
+    "githubTitle": "GitHub",
+    "copyright": "© {year} Dylan Gómez. All rights reserved."
+  },
+  "card": {
+    "view": "View",
+    "previewAlt": "Preview of {title}"
+  }
+}

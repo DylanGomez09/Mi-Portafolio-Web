@@ -8,17 +8,20 @@ import Projects from '../sections/Projects.astro';
 import Mentions from '../sections/Mentions.astro';
 import Contact from '../sections/Contact.astro';
 import Footer from '../sections/Footer.astro';
+import { loadTranslations } from '../i18n/index';
+
+const t = loadTranslations("es");
 ---
 
-<Layout>
-    <NavBar />
-    <main class="max-w-[1200px] mx-auto">
-        <Hero />
-        <AboutMe />
-        <Skills />
-        <Projects />
-        <Mentions />
-        <Contact />
-    </main>
-    <Footer />
+<Layout t={t.layout}>
+  <NavBar t={t.nav} />
+  <main class="max-w-[1200px] mx-auto">
+    <Hero t={t.hero} />
+    <AboutMe t={t.about} />
+    <Skills t={t.skills} />
+    <Projects t={t.projects} cardT={t.card} />
+    <Mentions t={t.mentions} cardT={t.card} />
+    <Contact t={t.contact} />
+  </main>
+  <Footer t={t.footer} />
 </Layout>
