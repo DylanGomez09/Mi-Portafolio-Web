@@ -3,6 +3,7 @@ export interface Props {
   t: {
     title: string;
     paragraphs: string[];
+    focus: string[];
   };
 }
 
@@ -11,9 +12,19 @@ const { t } = Astro.props;
 
 <section class="reveal flex flex-col gap-6 items-start py-12 px-8" id="about">
   <h2 class="font-bold text-2xl" set:text={t.title} />
-  <div class="flex flex-col gap-4 w-full text-justify">
+  <div class="flex flex-col gap-4 w-full">
     {t.paragraphs.map((paragraph) => (
       <p set:html={paragraph} />
+    ))}
+  </div>
+
+  <div class="flex flex-wrap gap-2">
+    {t.focus.map((item) => (
+      <span
+        class="border border-[#C8622E]/40 text-[#C8622E] dark:text-[#FAF7F4] text-sm font-medium rounded-full px-4 py-1.5 transition hover:bg-[#C8622E]/10"
+      >
+        {item}
+      </span>
     ))}
   </div>
 </section>

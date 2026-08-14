@@ -233,54 +233,46 @@ const { t } = Astro.props;
     <div
       class="max-w-[1200px] mx-auto bg-[#FAF7F4]/95 dark:bg-[#141414] rounded-b-lg shadow-md"
     >
-      <nav class="flex flex-col items-center gap-1 p-4" aria-label={t.ariaNavMobile}>
+      <nav
+        class="flex flex-col items-center gap-1 p-4"
+        aria-label={t.ariaNavMobile}
+      >
         <a
           href="#home"
           data-nav="#home"
           class="block py-2 px-3 rounded nav-link-mobile text-[#1A1614] dark:text-[#FAF7F4] hover:bg-[#EDE8E3] dark:hover:bg-[#1E1A17] transition"
           >{t.home}<span class="nav-dot"> ●</span></a
         >
-      </li>
-      <li>
         <a
           href="#about"
           data-nav="#about"
           class="block py-2 px-3 rounded nav-link-mobile text-[#1A1614] dark:text-[#FAF7F4] hover:bg-[#EDE8E3] dark:hover:bg-[#1E1A17] transition"
           >{t.about}<span class="nav-dot"> ●</span></a
         >
-      </li>
-      <li>
         <a
           href="#skills"
           data-nav="#skills"
           class="block py-2 px-3 rounded nav-link-mobile text-[#1A1614] dark:text-[#FAF7F4] hover:bg-[#EDE8E3] dark:hover:bg-[#1E1A17] transition"
           >{t.skills}<span class="nav-dot"> ●</span></a
         >
-      </li>
-      <li>
         <a
           href="#projects"
           data-nav="#projects"
           class="block py-2 px-3 rounded nav-link-mobile text-[#1A1614] dark:text-[#FAF7F4] hover:bg-[#EDE8E3] dark:hover:bg-[#1E1A17] transition"
           >{t.projects}<span class="nav-dot"> ●</span></a
         >
-      </li>
-      <li>
         <a
           href="#mentions"
           data-nav="#mentions"
           class="block py-2 px-3 rounded nav-link-mobile text-[#1A1614] dark:text-[#FAF7F4] hover:bg-[#EDE8E3] dark:hover:bg-[#1E1A17] transition"
           >{t.mentions}<span class="nav-dot"> ●</span></a
         >
-      </li>
-      <li>
         <a
           href="#contact"
           data-nav="#contact"
           class="block py-2 px-3 rounded nav-link-mobile text-[#1A1614] dark:text-[#FAF7F4] hover:bg-[#EDE8E3] dark:hover:bg-[#1E1A17] transition"
           >{t.contact}<span class="nav-dot"> ●</span></a
         >
-
 
         <div class="flex items-center justify-center gap-3 pt-2">
           <a
@@ -305,10 +297,10 @@ const { t } = Astro.props;
           >
             <img
               src="/icons/linkedin.svg"
-            alt={t.ariaLinkedin}
-            class="w-4 h-4 dark:filter dark:invert"
-          />
-        </a>
+              alt={t.ariaLinkedin}
+              class="w-4 h-4 dark:filter dark:invert"
+            />
+          </a>
         </div>
       </nav>
     </div>
@@ -324,24 +316,34 @@ const { t } = Astro.props;
   <svg class="absolute inset-0 w-full h-full -rotate-90" viewBox="0 0 36 36">
     <circle
       id="scroll-progress-bg"
-      cx="18" cy="18" r="16"
+      cx="18"
+      cy="18"
+      r="16"
       fill="none"
       stroke="rgba(255,255,255,0.2)"
-      stroke-width="2"
-    />
+      stroke-width="2"></circle>
     <circle
       id="scroll-progress"
-      cx="18" cy="18" r="16"
+      cx="18"
+      cy="18"
+      r="16"
       fill="none"
       stroke="currentColor"
       stroke-width="2"
       stroke-dasharray="100.53"
       stroke-dashoffset="100.53"
-      stroke-linecap="round"
-    />
+      stroke-linecap="round"></circle>
   </svg>
-  <svg class="w-5 h-5 relative z-10" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M12 19V5M5 12l7-7 7 7"/>
+  <svg
+    class="w-5 h-5 relative z-10"
+    fill="none"
+    stroke="currentColor"
+    viewBox="0 0 24 24"
+    stroke-width="2.5"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  >
+    <path d="M12 19V5M5 12l7-7 7 7"></path>
   </svg>
 </button>
 
@@ -404,7 +406,8 @@ const { t } = Astro.props;
 
     function updateScrollBtn() {
       const scrollTop = window.scrollY;
-      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const docHeight =
+        document.documentElement.scrollHeight - window.innerHeight;
 
       if (scrollTop > 400) {
         scrollBtn?.classList.remove("opacity-0", "pointer-events-none");
@@ -530,13 +533,9 @@ const { t } = Astro.props;
     pointer-events: auto;
   }
 
-  #mobile-menu li {
-    list-style: none;
-  }
-
   .nav-link-mobile .nav-dot {
     display: inline;
-    color: #C8622E;
+    color: #c8622e;
   }
 
   .nav-link-mobile.font-semibold .nav-dot {

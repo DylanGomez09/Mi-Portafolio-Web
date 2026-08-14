@@ -33,11 +33,12 @@
   "about": {
     "title": "Sobre mí",
     "paragraphs": [
-      "Hola, soy <span class=\"text-[#D4703A] font-semibold\">Dylan Ezequiel Gómez</span>, un desarrollador de software apasionado por crear experiencias digitales únicas, funcionales y de alto rendimiento. Me especializo en el desarrollo <span class=\"text-[#D4703A] font-medium\">Full-Stack</span>, transformando ideas complejas en aplicaciones web atractivas, intuitivas y totalmente responsivas, aplicando siempre <span class=\"text-[#D4703A] font-medium\">buenas prácticas de arquitectura y SEO</span>.",
+      "Hola, soy <span class=\"text-[#D4703A] font-semibold\">Dylan Ezequiel Gómez</span>, un desarrollador de software apasionado por crear experiencias digitales únicas, funcionales y de alto rendimiento. Me especializo en el desarrollo <span class=\"text-[#D4703A] font-medium\">Full-Stack</span>, transformando ideas complejas en aplicaciones <span class=\"text-[#D4703A] font-medium\">web y móviles</span> atractivas, intuitivas y totalmente responsivas, construidas con tecnologías como <span class=\"text-[#D4703A] font-medium\">React, Node.js y TypeScript</span> y aplicando siempre <span class=\"text-[#D4703A] font-medium\">buenas prácticas de arquitectura y SEO</span>.",
       "Me motiva mantenerme en <span class=\"text-[#D4703A] font-medium\">constante aprendizaje</span>, explorando tecnologías emergentes (como la integración de Inteligencia Artificial) para ofrecer soluciones innovadoras, eficientes y escalables.",
-      "Entre mis proyectos destacados se encuentra <a href=\"https://siatec.netlify.app/\" target=\"_blank\" rel=\"noopener\" class=\"text-[#D4703A] cursor-pointer font-medium hover:text-[#D4703A]/80 transition\">S.I.A.T.E.C.</a>, una plataforma para la gestión de turnos médicos que fue <span class=\"text-[#D4703A] font-medium\">reconocida en la Feria de Ciencias y Tecnología 2025 en San Vicente, Argentina</span>. Esta experiencia me permitió exponer mi trabajo en diversos eventos y conectar con profesionales del sector.",
-      "<span class=\"text-[#D4703A] font-semibold\">Cuento</span> con el respaldo de mi título de <span class=\"text-[#D4703A] font-semibold\">Técnico en Informática</span>, el cual me ha brindado una sólida base técnica y lógica para afrontar con éxito cualquier desafío en el desarrollo de software."
-    ]
+      "Entre mis proyectos destacados se encuentran <a href=\"https://siatec.netlify.app/\" target=\"_blank\" rel=\"noopener\" class=\"text-[#D4703A] cursor-pointer font-medium hover:text-[#D4703A]/80 transition\">S.I.A.T.E.C.</a>, una plataforma de gestión de turnos médicos <span class=\"text-[#D4703A] font-medium\">reconocida en la Feria de Ciencias y Tecnología 2025 en San Vicente, Argentina</span>, <a href=\"https://travio-ai-app.vercel.app/es\" target=\"_blank\" rel=\"noopener\" class=\"text-[#D4703A] cursor-pointer font-medium hover:text-[#D4703A]/80 transition\">TRAVIO AI</a>, una app que genera <span class=\"text-[#D4703A] font-medium\">itinerarios de viaje personalizados con Inteligencia Artificial</span>, y <a href=\"https://github.com/DylanGomez09/AlmacenPreciso\" target=\"_blank\" rel=\"noopener\" class=\"text-[#D4703A] cursor-pointer font-medium hover:text-[#D4703A]/80 transition\">Almacén Preciso</a>, una <span class=\"text-[#D4703A] font-medium\">app móvil de gestión de inventario</span> para comercios. Estas experiencias me permitieron exponer mi trabajo en diversos eventos y conectar con profesionales del sector.",
+      "<span class=\"text-[#D4703A] font-semibold\">Cuento</span> con el respaldo de mi título de <span class=\"text-[#D4703A] font-semibold\">Técnico en Informática</span>, el cual me ha brindado una sólida base técnica y lógica para afrontar con éxito cualquier desafío en el desarrollo de software. Actualmente estoy <span class=\"text-[#D4703A] font-medium\">disponible para proyectos freelance y nuevas oportunidades</span>."
+    ],
+    "focus": ["Desarrollo Web", "Desarrollo Móvil", "Backend", "Inteligencia Artificial"]
   },
   "skills": {
     "title": "Skills"
@@ -47,31 +48,37 @@
     "list": [
       {
         "title": "TRAVIO AI | App Web",
-        "description": "Aplicación web Full-Stack e2e que utiliza Inteligencia Artificial (Gemini API) para generar itinerarios de viaje diarios totalmente personalizados en segundos según el presupuesto e intereses del usuario",
+        "description": "Aplicación web <span class=\"text-[#D4703A] font-medium\">Full-Stack e2e</span> que utiliza <span class=\"text-[#D4703A] font-medium\">Inteligencia Artificial (Gemini API)</span> para generar <span class=\"text-[#D4703A] font-medium\">itinerarios de viaje</span> totalmente <span class=\"text-[#D4703A] font-medium\">personalizados</span> en segundos según el presupuesto e intereses del usuario",
         "image": "/projects-img/travio_app.webp",
         "demoLink": "https://travio-ai-app.vercel.app/es"
       },
       {
+        "title": "Almacén Preciso | App Móvil",
+        "description": "App móvil que agiliza la <span class=\"text-[#D4703A] font-medium\">comunicación operativa</span> entre dueños y empleados de comercios: <span class=\"text-[#D4703A] font-medium\">reportá faltantes al instante</span>, aprobá o rechazá reposiciones con un toque y seguí <span class=\"text-[#D4703A] font-medium\">métricas en tiempo real</span> con <span class=\"text-[#D4703A] font-medium\">notificaciones push</span>.",
+        "image": "/projects-img/ap-presentation.webp",
+        "demoLink": "https://github.com/DylanGomez09/AlmacenPreciso"
+      },
+      {
         "title": "YF Portfolio | Sitio Web Personal",
-        "description": "Landing page para mostrar habilidades, proyectos y contacto para una fotógrafa profesional.",
+        "description": "<span class=\"text-[#D4703A] font-medium\">Landing page</span> para mostrar habilidades, proyectos y contacto para una <span class=\"text-[#D4703A] font-medium\">fotógrafa profesional</span>.",
         "image": "/projects-img/yf-portfolio.webp",
         "demoLink": "https://yfuentealba.vercel.app/"
       },
       {
         "title": "Aberturas MG | E-commerce Store",
-        "description": "Un catálogo de productos para un emprendimiento llamado Aberturas MG, integrado con WhatsApp.",
+        "description": "Un <span class=\"text-[#D4703A] font-medium\">catálogo de productos</span> para un emprendimiento llamado <span class=\"text-[#D4703A] font-medium\">Aberturas MG</span>, <span class=\"text-[#D4703A] font-medium\">integrado con WhatsApp</span>.",
         "image": "/projects-img/aberturas-mg.webp",
         "demoLink": "https://aberturasmg.netlify.app/"
       },
       {
         "title": "SIA-TEC | Blog",
-        "description": "Blog desarrollado para el proyecto escolar SIA-TEC, una plataforma orientada a la gestión automatizada de turnos hospitalarios mediante IA.",
+        "description": "Blog desarrollado para el proyecto escolar <span class=\"text-[#D4703A] font-medium\">SIA-TEC</span>, una plataforma orientada a la <span class=\"text-[#D4703A] font-medium\">gestión automatizada de turnos hospitalarios</span> mediante <span class=\"text-[#D4703A] font-medium\">IA</span>.",
         "image": "/projects-img/siatec-web.webp",
         "demoLink": "https://siatec.netlify.app/"
       },
       {
         "title": "SIA-TEC | App",
-        "description": "Una aplicación para la gestión de turnos en hospitales con Inteligencia Artificial.",
+        "description": "Una aplicación para la <span class=\"text-[#D4703A] font-medium\">gestión de turnos en hospitales</span> con <span class=\"text-[#D4703A] font-medium\">Inteligencia Artificial</span>.",
         "image": "/projects-img/siatec-app-v2.webp",
         "demoLink": "https://github.com/DylanGomez09/SIA-TEC-App.git"
       }
