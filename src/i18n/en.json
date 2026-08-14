@@ -45,39 +45,51 @@
   },
   "projects": {
     "title": "Projects",
+    "filters": {
+      "all": "All",
+      "web": "Web",
+      "movil": "Mobile",
+      "ia": "AI"
+    },
     "list": [
       {
         "title": "TRAVIO AI | Web App",
+        "category": "ia",
         "description": "<span class=\"text-[#D4703A] font-medium\">Full-Stack e2e</span> web application that uses <span class=\"text-[#D4703A] font-medium\">Artificial Intelligence (Gemini API)</span> to generate <span class=\"text-[#D4703A] font-medium\">fully personalized travel itineraries</span> in seconds based on the user's budget and interests.",
         "image": "/projects-img/travio_app.webp",
         "demoLink": "https://travio-ai-app.vercel.app/es"
       },
       {
         "title": "Almacén Preciso | Mobile App",
+        "category": "movil",
         "description": "Mobile app that streamlines <span class=\"text-[#D4703A] font-medium\">operational communication</span> between store owners and staff: <span class=\"text-[#D4703A] font-medium\">report out-of-stock items instantly</span>, approve or reject restocks with one tap, and track <span class=\"text-[#D4703A] font-medium\">real-time metrics</span> with <span class=\"text-[#D4703A] font-medium\">push notifications</span>.",
         "image": "/projects-img/ap-presentation.webp",
         "demoLink": "https://github.com/DylanGomez09/AlmacenPreciso"
       },
       {
         "title": "YF Portfolio | Personal Website",
+        "category": "web",
         "description": "<span class=\"text-[#D4703A] font-medium\">Landing page</span> to showcase skills, projects and contact for a <span class=\"text-[#D4703A] font-medium\">professional photographer</span>.",
         "image": "/projects-img/yf-portfolio.webp",
         "demoLink": "https://yfuentealba.vercel.app/"
       },
       {
         "title": "Aberturas MG | E-commerce Store",
+        "category": "web",
         "description": "A <span class=\"text-[#D4703A] font-medium\">product catalog</span> for a business called <span class=\"text-[#D4703A] font-medium\">Aberturas MG</span>, <span class=\"text-[#D4703A] font-medium\">integrated with WhatsApp</span>.",
         "image": "/projects-img/aberturas-mg.webp",
         "demoLink": "https://aberturasmg.netlify.app/"
       },
       {
         "title": "SIA-TEC | Blog",
+        "category": "web",
         "description": "Blog developed for the <span class=\"text-[#D4703A] font-medium\">SIA-TEC</span> school project, a platform focused on <span class=\"text-[#D4703A] font-medium\">AI-powered</span> <span class=\"text-[#D4703A] font-medium\">automated hospital appointment management</span>.",
         "image": "/projects-img/siatec-web.webp",
         "demoLink": "https://siatec.netlify.app/"
       },
       {
         "title": "SIA-TEC | App",
+        "category": "ia",
         "description": "An application for <span class=\"text-[#D4703A] font-medium\">hospital appointment management</span> with <span class=\"text-[#D4703A] font-medium\">Artificial Intelligence</span>.",
         "image": "/projects-img/siatec-app-v2.webp",
         "demoLink": "https://github.com/DylanGomez09/SIA-TEC-App.git"
@@ -111,6 +123,9 @@
     "placeholderEmail": "Your email",
     "placeholderMessage": "Your message",
     "submit": "Send Message",
+    "sending": "Sending…",
+    "success": "Message sent! I'll get back to you shortly.",
+    "error": "Something went wrong. Try again or email me directly.",
     "emailAddress": "gomezdylan354@gmail.com",
     "phoneNumber": "+54 9 11 3118 1184"
   },

@@ -4,11 +4,18 @@ import ProjectCard from "../components/ProjectCard.astro";
 export interface Props {
   t: {
     title: string;
+    filters: {
+      all: string;
+      web: string;
+      movil: string;
+      ia: string;
+    };
     list: {
       title: string;
       description: string;
       image: string;
       demoLink: string;
+      category: string;
     }[];
   };
   cardT: {
@@ -21,13 +28,64 @@ const { t, cardT } = Astro.props;
 ---
 
 <section id="projects" class="reveal max-w-[1200px] mx-auto py-16 px-4 md:px-8">
-  <h2 class="font-bold text-2xl mb-8 md:mb-12">{t.title}</h2>
+  <h2 class="font-bold text-2xl mb-6 md:mb-8">{t.title}</h2>
+
+  <div class="flex flex-wrap gap-2 mb-8" role="group" aria-label="Projects filter">
+    {Object.entries(t.filters).map(([key, label]) => (
+      <button
+        type="button"
+        data-filter={key}
+        class={`filter-btn border border-gray-300 dark:border-gray-600 rounded-full px-4 py-1.5 text-sm font-medium transition hover:border-[#C8622E] hover:text-[#C8622E] dark:text-[#FAF7F4] ${
+          key === "all" ? "active" : ""
+        }`}
+      >
+        {label}
+      </button>
+    ))}
+  </div>
 
   <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
     {t.list.map((project, index) => (
-      <div class="reveal" style={`--delay: ${index * 0.1}s`}>
-        <ProjectCard {...project} t={cardT} />
+      <div
+        class="reveal"
+        data-category={project.category}
+        style={`--delay: ${index * 0.1}s`}
+      >
+        <ProjectCard
+          title={project.title}
+          description={project.description}
+          image={project.image}
+          demoLink={project.demoLink}
+          t={cardT}
+        />
       </div>
     ))}
   </div>
 </section>
+
+<script>
+  const filterButtons = document.querySelectorAll(".filter-btn");
+  const projectCards = document.querySelectorAll("[data-category]");
+
+  filterButtons.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      filterButtons.forEach((b) => b.classList.remove("active"));
+      btn.classList.add("active");
+
+      const filter = btn.dataset.filter;
+      projectCards.forEach((card) => {
+        const show = filter === "all" || card.dataset.category === filter;
+        card.classList.toggle("hidden", !show);
+        if (show) card.classList.add("visible");
+      });
+    });
+  });
+</script>
+
+<style>
+  .filter-btn.active {
+    background-color: #c8622e;
+    border-color: #c8622e;
+    color: #faf7f4;
+  }
+</style>

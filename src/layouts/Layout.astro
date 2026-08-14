@@ -14,6 +14,37 @@ export interface Props {
 }
 
 const { t } = Astro.props;
+
+const baseUrl = "https://www.dylandev.online";
+const canonical = t.lang === "en" ? `${baseUrl}/en/` : `${baseUrl}/`;
+const ogImage = `${baseUrl}/og-image.png`;
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "Dylan Ezequiel Gómez",
+  url: `${baseUrl}/`,
+  image: `${baseUrl}/img-perfil-2.webp`,
+  jobTitle: "Full-Stack Developer",
+  sameAs: [
+    "https://github.com/DylanGomez09",
+    "https://www.linkedin.com/in/dylang%C3%B3mez09/",
+  ],
+  knowsAbout: [
+    "React",
+    "React Native",
+    "Node.js",
+    "TypeScript",
+    "Astro",
+    "Next.js",
+    "PostgreSQL",
+    "Prisma",
+    "Python",
+    "Docker",
+    "Tailwind CSS",
+    "Laravel",
+  ],
+};
 ---
 
 <!doctype html>
@@ -31,14 +62,21 @@ const { t } = Astro.props;
     <meta name="description" content={t.description} />
     <meta name="keywords" content={t.keywords} />
     <meta name="author" content={t.author} />
+    <link rel="canonical" href={canonical} />
+    <link rel="alternate" hreflang="es" href={`${baseUrl}/`} />
+    <link rel="alternate" hreflang="en" href={`${baseUrl}/en/`} />
+    <link rel="alternate" hreflang="x-default" href={`${baseUrl}/`} />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={t.ogTitle} />
     <meta property="og:title" content={t.ogTitle} />
     <meta property="og:description" content={t.ogDescription} />
-    <meta property="og:image" content="/icons/dg-logo.png" />
-    <meta property="og:url" content="https://www.dylandev.online" />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:url" content={canonical} />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={t.ogTitle} />
     <meta name="twitter:description" content={t.ogDescription} />
-    <meta name="twitter:image" content="/icons/dg-logo.png" />
+    <meta name="twitter:image" content={ogImage} />
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
     <meta
       name="google-site-verification"
       content="nCGLp6l5bDZPn8VfvYi7fwHHPR1zsdwGVv195deHCfM"

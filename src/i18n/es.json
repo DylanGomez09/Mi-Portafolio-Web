@@ -45,39 +45,51 @@
   },
   "projects": {
     "title": "Proyectos",
+    "filters": {
+      "all": "Todos",
+      "web": "Web",
+      "movil": "Móvil",
+      "ia": "IA"
+    },
     "list": [
       {
         "title": "TRAVIO AI | App Web",
+        "category": "ia",
         "description": "Aplicación web <span class=\"text-[#D4703A] font-medium\">Full-Stack e2e</span> que utiliza <span class=\"text-[#D4703A] font-medium\">Inteligencia Artificial (Gemini API)</span> para generar <span class=\"text-[#D4703A] font-medium\">itinerarios de viaje</span> totalmente <span class=\"text-[#D4703A] font-medium\">personalizados</span> en segundos según el presupuesto e intereses del usuario",
         "image": "/projects-img/travio_app.webp",
         "demoLink": "https://travio-ai-app.vercel.app/es"
       },
       {
         "title": "Almacén Preciso | App Móvil",
+        "category": "movil",
         "description": "App móvil que agiliza la <span class=\"text-[#D4703A] font-medium\">comunicación operativa</span> entre dueños y empleados de comercios: <span class=\"text-[#D4703A] font-medium\">reportá faltantes al instante</span>, aprobá o rechazá reposiciones con un toque y seguí <span class=\"text-[#D4703A] font-medium\">métricas en tiempo real</span> con <span class=\"text-[#D4703A] font-medium\">notificaciones push</span>.",
         "image": "/projects-img/ap-presentation.webp",
         "demoLink": "https://github.com/DylanGomez09/AlmacenPreciso"
       },
       {
         "title": "YF Portfolio | Sitio Web Personal",
+        "category": "web",
         "description": "<span class=\"text-[#D4703A] font-medium\">Landing page</span> para mostrar habilidades, proyectos y contacto para una <span class=\"text-[#D4703A] font-medium\">fotógrafa profesional</span>.",
         "image": "/projects-img/yf-portfolio.webp",
         "demoLink": "https://yfuentealba.vercel.app/"
       },
       {
         "title": "Aberturas MG | E-commerce Store",
+        "category": "web",
         "description": "Un <span class=\"text-[#D4703A] font-medium\">catálogo de productos</span> para un emprendimiento llamado <span class=\"text-[#D4703A] font-medium\">Aberturas MG</span>, <span class=\"text-[#D4703A] font-medium\">integrado con WhatsApp</span>.",
         "image": "/projects-img/aberturas-mg.webp",
         "demoLink": "https://aberturasmg.netlify.app/"
       },
       {
         "title": "SIA-TEC | Blog",
+        "category": "web",
         "description": "Blog desarrollado para el proyecto escolar <span class=\"text-[#D4703A] font-medium\">SIA-TEC</span>, una plataforma orientada a la <span class=\"text-[#D4703A] font-medium\">gestión automatizada de turnos hospitalarios</span> mediante <span class=\"text-[#D4703A] font-medium\">IA</span>.",
         "image": "/projects-img/siatec-web.webp",
         "demoLink": "https://siatec.netlify.app/"
       },
       {
         "title": "SIA-TEC | App",
+        "category": "ia",
         "description": "Una aplicación para la <span class=\"text-[#D4703A] font-medium\">gestión de turnos en hospitales</span> con <span class=\"text-[#D4703A] font-medium\">Inteligencia Artificial</span>.",
         "image": "/projects-img/siatec-app-v2.webp",
         "demoLink": "https://github.com/DylanGomez09/SIA-TEC-App.git"
@@ -111,6 +123,9 @@
     "placeholderEmail": "Tu email",
     "placeholderMessage": "Tu mensaje",
     "submit": "Enviar Mensaje",
+    "sending": "Enviando…",
+    "success": "¡Mensaje enviado! Te responderé a la brevedad.",
+    "error": "Hubo un error al enviar. Intentá de nuevo o escribime directo por email.",
     "emailAddress": "gomezdylan354@gmail.com",
     "phoneNumber": "+54 9 11 3118 1184"
   },
