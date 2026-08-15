@@ -16,10 +16,13 @@ export interface Props {
       image: string;
       demoLink: string;
       category: string;
+      stack?: string[];
+      codeLink?: string;
     }[];
   };
   cardT: {
     view: string;
+    code: string;
     previewAlt: string;
   };
 }
@@ -56,6 +59,8 @@ const { t, cardT } = Astro.props;
           description={project.description}
           image={project.image}
           demoLink={project.demoLink}
+          stack={project.stack}
+          codeLink={project.codeLink}
           t={cardT}
         />
       </div>

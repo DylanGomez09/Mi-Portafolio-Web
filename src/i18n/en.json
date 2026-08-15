@@ -28,7 +28,10 @@
   "hero": {
     "profileAlt": "Profile picture of Dylan Gómez",
     "subtitle": "Full Stack Developer | Creating unique web experiences",
-    "cta": "View projects"
+    "cta": "View projects",
+    "ctaSecondary": "Contact me",
+    "cv": "Download CV",
+    "available": "Available for projects"
   },
   "about": {
     "title": "About me",
@@ -41,7 +44,12 @@
     "focus": ["Web Development", "Mobile Development", "Backend", "Artificial Intelligence"]
   },
   "skills": {
-    "title": "Skills"
+    "title": "Skills",
+    "groups": {
+      "frontend": "Frontend",
+      "backend": "Backend",
+      "devops": "DevOps & Tools"
+    }
   },
   "projects": {
     "title": "Projects",
@@ -57,6 +65,7 @@
         "category": "ia",
         "description": "<span class=\"text-[#D4703A] font-medium\">Full-Stack e2e</span> web application that uses <span class=\"text-[#D4703A] font-medium\">Artificial Intelligence (Gemini API)</span> to generate <span class=\"text-[#D4703A] font-medium\">fully personalized travel itineraries</span> in seconds based on the user's budget and interests.",
         "image": "/projects-img/travio_app.webp",
+        "stack": ["Next.js", "TypeScript", "Prisma", "PostgreSQL", "Gemini API"],
         "demoLink": "https://travio-ai-app.vercel.app/es"
       },
       {
@@ -64,6 +73,8 @@
         "category": "movil",
         "description": "Mobile app that streamlines <span class=\"text-[#D4703A] font-medium\">operational communication</span> between store owners and staff: <span class=\"text-[#D4703A] font-medium\">report out-of-stock items instantly</span>, approve or reject restocks with one tap, and track <span class=\"text-[#D4703A] font-medium\">real-time metrics</span> with <span class=\"text-[#D4703A] font-medium\">push notifications</span>.",
         "image": "/projects-img/ap-presentation.webp",
+        "stack": ["React Native", "TypeScript", "Node.js", "Express", "Supabase", "JWT"],
+        "codeLink": "https://github.com/DylanGomez09/AlmacenPreciso",
         "demoLink": "https://github.com/DylanGomez09/AlmacenPreciso"
       },
       {
@@ -71,6 +82,7 @@
         "category": "web",
         "description": "<span class=\"text-[#D4703A] font-medium\">Landing page</span> to showcase skills, projects and contact for a <span class=\"text-[#D4703A] font-medium\">professional photographer</span>.",
         "image": "/projects-img/yf-portfolio.webp",
+        "stack": ["Astro", "Tailwind CSS"],
         "demoLink": "https://yfuentealba.vercel.app/"
       },
       {
@@ -78,6 +90,7 @@
         "category": "web",
         "description": "A <span class=\"text-[#D4703A] font-medium\">product catalog</span> for a business called <span class=\"text-[#D4703A] font-medium\">Aberturas MG</span>, <span class=\"text-[#D4703A] font-medium\">integrated with WhatsApp</span>.",
         "image": "/projects-img/aberturas-mg.webp",
+        "stack": ["HTML", "CSS", "JavaScript", "WhatsApp API"],
         "demoLink": "https://aberturasmg.netlify.app/"
       },
       {
@@ -85,6 +98,7 @@
         "category": "web",
         "description": "Blog developed for the <span class=\"text-[#D4703A] font-medium\">SIA-TEC</span> school project, a platform focused on <span class=\"text-[#D4703A] font-medium\">AI-powered</span> <span class=\"text-[#D4703A] font-medium\">automated hospital appointment management</span>.",
         "image": "/projects-img/siatec-web.webp",
+        "stack": ["Astro", "Tailwind CSS", "JavaScript"],
         "demoLink": "https://siatec.netlify.app/"
       },
       {
@@ -92,6 +106,8 @@
         "category": "ia",
         "description": "An application for <span class=\"text-[#D4703A] font-medium\">hospital appointment management</span> with <span class=\"text-[#D4703A] font-medium\">Artificial Intelligence</span>.",
         "image": "/projects-img/siatec-app-v2.webp",
+        "stack": ["Python", "MySQL", "AI"],
+        "codeLink": "https://github.com/DylanGomez09/SIA-TEC-App.git",
         "demoLink": "https://github.com/DylanGomez09/SIA-TEC-App.git"
       }
     ]
@@ -143,6 +159,7 @@
   },
   "card": {
     "view": "View",
+    "code": "Code",
     "previewAlt": "Preview of {title}"
   }
 }

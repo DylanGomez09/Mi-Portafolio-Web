@@ -4,29 +4,65 @@ export interface Props {
     profileAlt: string;
     subtitle: string;
     cta: string;
+    ctaSecondary: string;
+    cv: string;
+    available: string;
   };
 }
 
 const { t } = Astro.props;
 ---
 
-<section id="home" class="reveal flex flex-col md:flex-row justify-center items-center gap-8 py-16 mb-16 md:mb-32 mt-24 md:mt-36 px-4">
-    <img 
-        src="/img-perfil-2.webp" 
-        alt={t.profileAlt}
-        class="w-52 md:w-80 h-auto rounded-full shadow-[-14px_18px_30px_-10px_rgba(0,0,0,0.45),6px_-6px_20px_rgba(0,0,0,0.08)] hover:scale-105 transition duration-500"
+<section
+  id="home"
+  class="reveal flex flex-col md:flex-row justify-center items-center gap-8 py-16 mb-16 md:mb-32 mt-24 md:mt-36 px-4 overflow-x-clip"
+>
+  <div class="relative">
+    <div
+      aria-hidden="true"
+      class="absolute inset-0 scale-125 rounded-full bg-[radial-gradient(circle,rgba(200,98,46,0.28),transparent_65%)] blur-2xl"
+    ></div>
+    <img
+      src="/img-perfil-2.webp"
+      width="2819"
+      height="3587"
+      alt={t.profileAlt}
+      class="relative w-52 md:w-80 h-auto rounded-full shadow-[-14px_18px_30px_-10px_rgba(0,0,0,0.45),6px_-6px_20px_rgba(0,0,0,0.08)] hover:scale-105 transition duration-500"
     />
-    
-    <div class="flex flex-col items-center text-center gap-6">
-        <h1 class="font-extrabold text-4xl md:text-5xl">Dylan Gómez</h1>
-        <p class="text-lg text-[#1A1614] dark:text-[#FAF7F4]/80 max-w-md">
-            {t.subtitle}
-        </p>
-        <a 
-            href="#projects" 
-            class="bg-[#C8622E] px-6 py-3 rounded-xl font-medium text-[#FAF7F4] hover:bg-[#C8622E]/90 hover:scale-105 transition duration-300 shadow-md"
-        >
-            {t.cta}
-        </a>
+  </div>
+
+  <div class="flex flex-col items-center text-center gap-6">
+    <span
+      class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-sm font-medium border border-green-600/40 text-green-600 dark:text-green-400"
+    >
+      <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
+      {t.available}
+    </span>
+    <h1 class="font-extrabold text-4xl md:text-5xl">Dylan Gómez</h1>
+    <p class="text-lg text-[#1A1614] dark:text-[#FAF7F4]/80 max-w-md">
+      {t.subtitle}
+    </p>
+    <div class="flex flex-wrap items-center justify-center gap-3">
+      <a
+        href="#projects"
+        class="bg-[#C8622E] px-6 py-3 rounded-xl font-medium text-[#FAF7F4] hover:bg-[#C8622E]/90 hover:scale-105 transition duration-300 shadow-md"
+      >
+        {t.cta}
+      </a>
+      <a
+        href="#contact"
+        class="border border-[#C8622E] text-[#C8622E] px-6 py-3 rounded-xl font-medium hover:bg-[#C8622E]/10 hover:scale-105 transition duration-300"
+      >
+        {t.ctaSecondary}
+      </a>
+      <a
+        href="/cv/cv.pdf"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="bg-[#1A1614] dark:bg-[#FAF7F4] text-[#FAF7F4] dark:text-[#1A1614] px-6 py-3 rounded-xl font-medium hover:opacity-80 hover:scale-105 transition duration-300"
+      >
+        {t.cv} <span aria-hidden="true">↓</span>
+      </a>
     </div>
+  </div>
 </section>

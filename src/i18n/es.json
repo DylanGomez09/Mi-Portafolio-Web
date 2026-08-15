@@ -28,7 +28,10 @@
   "hero": {
     "profileAlt": "Foto de perfil de Dylan Gómez",
     "subtitle": "Desarrollador Full Stack | Creando experiencias webs únicas",
-    "cta": "Ver proyectos"
+    "cta": "Ver proyectos",
+    "ctaSecondary": "Contáctame",
+    "cv": "Descargar CV",
+    "available": "Disponible para proyectos"
   },
   "about": {
     "title": "Sobre mí",
@@ -46,7 +49,12 @@
     ]
   },
   "skills": {
-    "title": "Skills"
+    "title": "Skills",
+    "groups": {
+      "frontend": "Frontend",
+      "backend": "Backend",
+      "devops": "DevOps & Herramientas"
+    }
   },
   "projects": {
     "title": "Proyectos",
@@ -62,6 +70,7 @@
         "category": "ia",
         "description": "Aplicación web <span class=\"text-[#D4703A] font-medium\">Full-Stack e2e</span> que utiliza <span class=\"text-[#D4703A] font-medium\">Inteligencia Artificial (Gemini API)</span> para generar <span class=\"text-[#D4703A] font-medium\">itinerarios de viaje</span> totalmente <span class=\"text-[#D4703A] font-medium\">personalizados</span> en segundos según el presupuesto e intereses del usuario",
         "image": "/projects-img/travio_app.webp",
+        "stack": ["Next.js", "TypeScript", "Prisma", "PostgreSQL", "Gemini API"],
         "demoLink": "https://travio-ai-app.vercel.app/es"
       },
       {
@@ -69,6 +78,8 @@
         "category": "movil",
         "description": "App móvil de gestión de inventario con <span class=\"text-[#D4703A] font-medium\">reporte de faltantes en tiempo real</span>, <span class=\"text-[#D4703A] font-medium\">flujo de aprobación</span> para el dueño, código de unión para el equipo, <span class=\"text-[#D4703A] font-medium\">notificaciones push</span> y roles de Dueño y Empleado.",
         "image": "/projects-img/ap-presentation.webp",
+        "stack": ["React Native", "TypeScript", "Node.js", "Express", "Supabase", "JWT"],
+        "codeLink": "https://github.com/DylanGomez09/AlmacenPreciso",
         "demoLink": "https://github.com/DylanGomez09/AlmacenPreciso"
       },
       {
@@ -76,6 +87,7 @@
         "category": "web",
         "description": "<span class=\"text-[#D4703A] font-medium\">Landing page</span> para mostrar habilidades, proyectos y contacto para una <span class=\"text-[#D4703A] font-medium\">fotógrafa profesional</span>.",
         "image": "/projects-img/yf-portfolio.webp",
+        "stack": ["Astro", "Tailwind CSS"],
         "demoLink": "https://yfuentealba.vercel.app/"
       },
       {
@@ -83,6 +95,7 @@
         "category": "web",
         "description": "Un <span class=\"text-[#D4703A] font-medium\">catálogo de productos</span> para un emprendimiento llamado <span class=\"text-[#D4703A] font-medium\">Aberturas MG</span>, <span class=\"text-[#D4703A] font-medium\">integrado con WhatsApp</span>.",
         "image": "/projects-img/aberturas-mg.webp",
+        "stack": ["HTML", "CSS", "JavaScript", "WhatsApp API"],
         "demoLink": "https://aberturasmg.netlify.app/"
       },
       {
@@ -90,6 +103,7 @@
         "category": "web",
         "description": "Blog desarrollado para el proyecto escolar <span class=\"text-[#D4703A] font-medium\">SIA-TEC</span>, una plataforma orientada a la <span class=\"text-[#D4703A] font-medium\">gestión automatizada de turnos hospitalarios</span> mediante <span class=\"text-[#D4703A] font-medium\">IA</span>.",
         "image": "/projects-img/siatec-web.webp",
+        "stack": ["Astro", "Tailwind CSS", "JavaScript"],
         "demoLink": "https://siatec.netlify.app/"
       },
       {
@@ -97,6 +111,8 @@
         "category": "ia",
         "description": "Una aplicación para la <span class=\"text-[#D4703A] font-medium\">gestión de turnos en hospitales</span> con <span class=\"text-[#D4703A] font-medium\">Inteligencia Artificial</span>.",
         "image": "/projects-img/siatec-app-v2.webp",
+        "stack": ["Python", "MySQL", "IA"],
+        "codeLink": "https://github.com/DylanGomez09/SIA-TEC-App.git",
         "demoLink": "https://github.com/DylanGomez09/SIA-TEC-App.git"
       }
     ]
@@ -145,6 +161,7 @@
   },
   "card": {
     "view": "Ver",
+    "code": "Código",
     "previewAlt": "Vista previa de {title}"
   }
 }
