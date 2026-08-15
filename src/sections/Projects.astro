@@ -73,10 +73,23 @@ const { t, cardT } = Astro.props;
       btn.classList.add("active");
 
       const filter = btn.dataset.filter;
+      const shown = [];
       projectCards.forEach((card) => {
         const show = filter === "all" || card.dataset.category === filter;
         card.classList.toggle("hidden", !show);
-        if (show) card.classList.add("visible");
+        if (!show) {
+          card.classList.remove("visible", "animate-in");
+          card.style.animationDelay = "0ms";
+          return;
+        }
+        card.classList.add("visible");
+        card.classList.remove("animate-in");
+        shown.push(card);
+      });
+      shown.forEach((card, i) => {
+        card.style.animationDelay = `${i * 70}ms`;
+        void card.offsetWidth;
+        card.classList.add("animate-in");
       });
     });
   });
@@ -87,5 +100,20 @@ const { t, cardT } = Astro.props;
     background-color: #c8622e;
     border-color: #c8622e;
     color: #faf7f4;
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px) scale(0.98);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+
+  .animate-in {
+    animation: fadeInUp 0.5s cubic-bezier(0.22, 0.61, 0.36, 1) both;
   }
 </style>

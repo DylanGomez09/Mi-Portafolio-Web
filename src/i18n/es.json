@@ -38,7 +38,12 @@
       "Entre mis proyectos destacados se encuentran <a href=\"https://siatec.netlify.app/\" target=\"_blank\" rel=\"noopener\" class=\"text-[#D4703A] cursor-pointer font-medium hover:text-[#D4703A]/80 transition\">S.I.A.T.E.C.</a>, una plataforma de gestión de turnos médicos <span class=\"text-[#D4703A] font-medium\">reconocida en la Feria de Ciencias y Tecnología 2025 en San Vicente, Argentina</span>, <a href=\"https://travio-ai-app.vercel.app/es\" target=\"_blank\" rel=\"noopener\" class=\"text-[#D4703A] cursor-pointer font-medium hover:text-[#D4703A]/80 transition\">TRAVIO AI</a>, una app que genera <span class=\"text-[#D4703A] font-medium\">itinerarios de viaje personalizados con Inteligencia Artificial</span>, y <a href=\"https://github.com/DylanGomez09/AlmacenPreciso\" target=\"_blank\" rel=\"noopener\" class=\"text-[#D4703A] cursor-pointer font-medium hover:text-[#D4703A]/80 transition\">Almacén Preciso</a>, una <span class=\"text-[#D4703A] font-medium\">app móvil de gestión de inventario</span> para comercios. Estas experiencias me permitieron exponer mi trabajo en diversos eventos y conectar con profesionales del sector.",
       "<span class=\"text-[#D4703A] font-semibold\">Cuento</span> con el respaldo de mi título de <span class=\"text-[#D4703A] font-semibold\">Técnico en Informática</span>, el cual me ha brindado una sólida base técnica y lógica para afrontar con éxito cualquier desafío en el desarrollo de software. Actualmente estoy <span class=\"text-[#D4703A] font-medium\">disponible para proyectos freelance y nuevas oportunidades</span>."
     ],
-    "focus": ["Desarrollo Web", "Desarrollo Móvil", "Backend", "Inteligencia Artificial"]
+    "focus": [
+      "Desarrollo Web",
+      "Desarrollo Móvil",
+      "Backend",
+      "Inteligencia Artificial"
+    ]
   },
   "skills": {
     "title": "Skills"
@@ -62,7 +67,7 @@
       {
         "title": "Almacén Preciso | App Móvil",
         "category": "movil",
-        "description": "App móvil que agiliza la <span class=\"text-[#D4703A] font-medium\">comunicación operativa</span> entre dueños y empleados de comercios: <span class=\"text-[#D4703A] font-medium\">reportá faltantes al instante</span>, aprobá o rechazá reposiciones con un toque y seguí <span class=\"text-[#D4703A] font-medium\">métricas en tiempo real</span> con <span class=\"text-[#D4703A] font-medium\">notificaciones push</span>.",
+        "description": "App móvil de gestión de inventario con <span class=\"text-[#D4703A] font-medium\">reporte de faltantes en tiempo real</span>, <span class=\"text-[#D4703A] font-medium\">flujo de aprobación</span> para el dueño, código de unión para el equipo, <span class=\"text-[#D4703A] font-medium\">notificaciones push</span> y roles de Dueño y Empleado.",
         "image": "/projects-img/ap-presentation.webp",
         "demoLink": "https://github.com/DylanGomez09/AlmacenPreciso"
       },
@@ -123,11 +128,9 @@
     "placeholderEmail": "Tu email",
     "placeholderMessage": "Tu mensaje",
     "submit": "Enviar Mensaje",
-    "sending": "Enviando…",
-    "success": "¡Mensaje enviado! Te responderé a la brevedad.",
-    "error": "Hubo un error al enviar. Intentá de nuevo o escribime directo por email.",
     "emailAddress": "gomezdylan354@gmail.com",
-    "phoneNumber": "+54 9 11 3118 1184"
+    "linkedin": "LinkedIn",
+    "linkedinUrl": "https://www.linkedin.com/in/dylang%C3%B3mez09/"
   },
   "footer": {
     "navAria": "Footer",
