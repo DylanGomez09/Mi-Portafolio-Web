@@ -5,7 +5,6 @@ export interface Props {
     subtitle: string;
     cta: string;
     ctaSecondary: string;
-    cv: string;
     available: string;
   };
 }
@@ -54,14 +53,6 @@ const { t } = Astro.props;
         class="border border-[#C8622E] text-[#C8622E] px-6 py-3 rounded-xl font-medium hover:bg-[#C8622E]/10 hover:scale-105 transition duration-300"
       >
         {t.ctaSecondary}
-      </a>
-      <a
-        href="/cv/cv.pdf"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="bg-[#1A1614] dark:bg-[#FAF7F4] text-[#FAF7F4] dark:text-[#1A1614] px-6 py-3 rounded-xl font-medium hover:opacity-80 hover:scale-105 transition duration-300"
-      >
-        {t.cv} <span aria-hidden="true">↓</span>
       </a>
     </div>
   </div>
