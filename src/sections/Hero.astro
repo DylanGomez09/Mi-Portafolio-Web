@@ -20,7 +20,8 @@ const { t } = Astro.props;
     <div
       aria-hidden="true"
       class="absolute inset-0 scale-125 rounded-full bg-[radial-gradient(circle,rgba(200,98,46,0.28),transparent_65%)] blur-2xl"
-    ></div>
+    >
+    </div>
     <img
       src="/img-perfil-2.webp"
       width="2819"
@@ -31,12 +32,6 @@ const { t } = Astro.props;
   </div>
 
   <div class="flex flex-col items-center text-center gap-6">
-    <span
-      class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-sm font-medium border border-green-600/40 text-green-600 dark:text-green-400"
-    >
-      <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
-      {t.available}
-    </span>
     <h1 class="font-extrabold text-4xl md:text-5xl">Dylan Gómez</h1>
     <p class="text-lg text-[#1A1614] dark:text-[#FAF7F4]/80 max-w-md">
       {t.subtitle}

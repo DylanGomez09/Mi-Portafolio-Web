@@ -29,16 +29,16 @@
     "profileAlt": "Foto de perfil de Dylan Gómez",
     "subtitle": "Desarrollador Full Stack | Creando experiencias webs únicas",
     "cta": "Ver proyectos",
-    "ctaSecondary": "Contáctame",
-    "available": "Disponible para proyectos"
+    "ctaSecondary": "Contáctame"
   },
   "about": {
     "title": "Sobre mí",
     "paragraphs": [
-      "Hola, soy <span class=\"text-[#D4703A] font-semibold\">Dylan Ezequiel Gómez</span>, un desarrollador de software apasionado por crear experiencias digitales únicas, funcionales y de alto rendimiento. Me especializo en el desarrollo <span class=\"text-[#D4703A] font-medium\">Full-Stack</span>, transformando ideas complejas en aplicaciones <span class=\"text-[#D4703A] font-medium\">web y móviles</span> atractivas, intuitivas y totalmente responsivas, construidas con tecnologías como <span class=\"text-[#D4703A] font-medium\">React, Node.js y TypeScript</span> y aplicando siempre <span class=\"text-[#D4703A] font-medium\">buenas prácticas de arquitectura y SEO</span>.",
-      "Me motiva mantenerme en <span class=\"text-[#D4703A] font-medium\">constante aprendizaje</span>, explorando tecnologías emergentes (como la integración de Inteligencia Artificial) para ofrecer soluciones innovadoras, eficientes y escalables.",
-      "Entre mis proyectos destacados se encuentran <a href=\"https://siatec.netlify.app/\" target=\"_blank\" rel=\"noopener\" class=\"text-[#D4703A] cursor-pointer font-medium hover:text-[#D4703A]/80 transition\">S.I.A.T.E.C.</a>, una plataforma de gestión de turnos médicos <span class=\"text-[#D4703A] font-medium\">reconocida en la Feria de Ciencias y Tecnología 2025 en San Vicente, Argentina</span>, <a href=\"https://travio-ai-app.vercel.app/es\" target=\"_blank\" rel=\"noopener\" class=\"text-[#D4703A] cursor-pointer font-medium hover:text-[#D4703A]/80 transition\">TRAVIO AI</a>, una app que genera <span class=\"text-[#D4703A] font-medium\">itinerarios de viaje personalizados con Inteligencia Artificial</span>, y <a href=\"https://github.com/DylanGomez09/AlmacenPreciso\" target=\"_blank\" rel=\"noopener\" class=\"text-[#D4703A] cursor-pointer font-medium hover:text-[#D4703A]/80 transition\">Almacén Preciso</a>, una <span class=\"text-[#D4703A] font-medium\">app móvil de gestión de inventario</span> para comercios. Estas experiencias me permitieron exponer mi trabajo en diversos eventos y conectar con profesionales del sector.",
-      "<span class=\"text-[#D4703A] font-semibold\">Cuento</span> con el respaldo de mi título de <span class=\"text-[#D4703A] font-semibold\">Técnico en Informática</span>, el cual me ha brindado una sólida base técnica y lógica para afrontar con éxito cualquier desafío en el desarrollo de software. Actualmente estoy <span class=\"text-[#D4703A] font-medium\">disponible para proyectos freelance y nuevas oportunidades</span>."
+      "Soy <span class=\"text-[#D4703A] font-semibold\">Dylan Ezequiel Gómez</span>, <span class=\"text-[#D4703A] font-medium\">Técnico en Informática</span> y desarrollador de software.",
+      "Creo productos digitales <span class=\"text-[#D4703A] font-medium\">modernos, funcionales y escalables</span>, principalmente aplicaciones <span class=\"text-[#D4703A] font-medium\">web y móviles</span>. Trabajo con <span class=\"text-[#D4703A] font-medium\">React, TypeScript, Node.js</span> y el ecosistema JavaScript, combinando desarrollo <span class=\"text-[#D4703A] font-medium\">frontend y backend</span>.",
+      "Me interesa convertir <span class=\"text-[#D4703A] font-medium\">problemas e ideas en soluciones de software concretas</span>, incorporando herramientas como la <span class=\"text-[#D4703A] font-medium\">Inteligencia Artificial</span> cuando realmente aportan valor al producto.",
+      "Ese enfoque me permitió desarrollar soluciones de software con <span class=\"text-[#D4703A] font-medium\">impacto real</span>, reconocidas en espacios educativos como la <a href=\"https://www.eldiariosur.com/san-vicente/2026/4/29/alumnos-de-la-tecnica-de-san-vicente-desarrollaron-un-programa-para-acelerar-la-atencion-en-los-caps-79546.html\" target=\"_blank\" rel=\"noopener\" class=\"text-[#D4703A] cursor-pointer font-medium hover:text-[#D4703A]/80 transition\">Feria de Ciencias y Tecnología 2025</a>.",
+      "Actualmente busco <span class=\"text-[#D4703A] font-medium\">seguir creciendo profesionalmente</span> a través de proyectos, colaboraciones y oportunidades dentro del desarrollo de software."
     ],
     "focus": [
       "Desarrollo Web",
@@ -49,6 +49,12 @@
   },
   "skills": {
     "title": "Skills",
+    "filters": {
+      "all": "Todas",
+      "frontend": "Frontend",
+      "backend": "Backend",
+      "devops": "DevOps"
+    },
     "groups": {
       "frontend": "Frontend",
       "backend": "Backend",
@@ -59,17 +65,32 @@
     "title": "Proyectos",
     "filters": {
       "all": "Todos",
+      "saas": "SaaS",
       "web": "Web",
       "movil": "Móvil",
       "ia": "IA"
     },
     "list": [
       {
+        "title": "BARRA | SaaS para Gimnasios",
+        "category": "saas",
+        "description": "<span class=\"text-[#D4703A] font-medium\">SaaS multi-gimnasio</span> que termina con las planillas: <span class=\"text-[#D4703A] font-medium\">CRM desktop</span> para gestionar clientes, cobranza, rutinas y asistencia, y <span class=\"text-[#D4703A] font-medium\">app mobile</span> para socios con rutina tapeable, sellos por QR y renovación del plan self-service.",
+        "image": "/projects-img/barra-mockup.webp",
+        "stack": ["React", "TypeScript", "Vite", "Tailwind", "Supabase"],
+        "demoLink": "https://barrafit.online"
+      },
+      {
         "title": "TRAVIO AI | App Web",
         "category": "ia",
         "description": "Aplicación web <span class=\"text-[#D4703A] font-medium\">Full-Stack e2e</span> que utiliza <span class=\"text-[#D4703A] font-medium\">Inteligencia Artificial (Gemini API)</span> para generar <span class=\"text-[#D4703A] font-medium\">itinerarios de viaje</span> totalmente <span class=\"text-[#D4703A] font-medium\">personalizados</span> en segundos según el presupuesto e intereses del usuario",
         "image": "/projects-img/travio_app.webp",
-        "stack": ["Next.js", "TypeScript", "Prisma", "PostgreSQL", "Gemini API"],
+        "stack": [
+          "Next.js",
+          "TypeScript",
+          "Prisma",
+          "PostgreSQL",
+          "Gemini API"
+        ],
         "demoLink": "https://travio-ai-app.vercel.app/es"
       },
       {
@@ -77,7 +98,14 @@
         "category": "movil",
         "description": "App móvil de gestión de inventario con <span class=\"text-[#D4703A] font-medium\">reporte de faltantes en tiempo real</span>, <span class=\"text-[#D4703A] font-medium\">flujo de aprobación</span> para el dueño, código de unión para el equipo, <span class=\"text-[#D4703A] font-medium\">notificaciones push</span> y roles de Dueño y Empleado.",
         "image": "/projects-img/ap-presentation.webp",
-        "stack": ["React Native", "TypeScript", "Node.js", "Express", "Supabase", "JWT"],
+        "stack": [
+          "React Native",
+          "TypeScript",
+          "Node.js",
+          "Express",
+          "Supabase",
+          "JWT"
+        ],
         "codeLink": "https://github.com/DylanGomez09/AlmacenPreciso",
         "demoLink": "https://github.com/DylanGomez09/AlmacenPreciso"
       },
@@ -88,6 +116,15 @@
         "image": "/projects-img/yf-portfolio.webp",
         "stack": ["Astro", "Tailwind CSS"],
         "demoLink": "https://yfuentealba.vercel.app/"
+      },
+      {
+        "title": "SIA-TEC | App",
+        "category": "ia",
+        "description": "Una aplicación para la <span class=\"text-[#D4703A] font-medium\">gestión de turnos en hospitales</span> con <span class=\"text-[#D4703A] font-medium\">Inteligencia Artificial</span>.",
+        "image": "/projects-img/siatec-app-v2.webp",
+        "stack": ["Python", "MySQL", "IA"],
+        "codeLink": "https://github.com/DylanGomez09/SIA-TEC-App.git",
+        "demoLink": "https://github.com/DylanGomez09/SIA-TEC-App.git"
       },
       {
         "title": "Aberturas MG | E-commerce Store",
@@ -104,15 +141,6 @@
         "image": "/projects-img/siatec-web.webp",
         "stack": ["Astro", "Tailwind CSS", "JavaScript"],
         "demoLink": "https://siatec.netlify.app/"
-      },
-      {
-        "title": "SIA-TEC | App",
-        "category": "ia",
-        "description": "Una aplicación para la <span class=\"text-[#D4703A] font-medium\">gestión de turnos en hospitales</span> con <span class=\"text-[#D4703A] font-medium\">Inteligencia Artificial</span>.",
-        "image": "/projects-img/siatec-app-v2.webp",
-        "stack": ["Python", "MySQL", "IA"],
-        "codeLink": "https://github.com/DylanGomez09/SIA-TEC-App.git",
-        "demoLink": "https://github.com/DylanGomez09/SIA-TEC-App.git"
       }
     ]
   },
@@ -161,6 +189,7 @@
   "card": {
     "view": "Ver",
     "code": "Código",
+    "featured": "Destacado",
     "previewAlt": "Vista previa de {title}"
   }
 }

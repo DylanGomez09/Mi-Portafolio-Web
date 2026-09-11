@@ -4,6 +4,12 @@ import SkillCard from "../components/SkillsCard.astro";
 export interface Props {
   t: {
     title: string;
+    filters: {
+      all: string;
+      frontend: string;
+      backend: string;
+      devops: string;
+    };
     groups: {
       frontend: string;
       backend: string;
@@ -16,7 +22,7 @@ const { t } = Astro.props;
 
 const skillGroups = [
   {
-    titleKey: "frontend",
+    key: "frontend",
     skills: [
       { name: "React", icon: "/icons/react.svg" },
       { name: "React Native", icon: "/icons/react.svg" },
@@ -31,18 +37,16 @@ const skillGroups = [
     ],
   },
   {
-    titleKey: "backend",
+    key: "backend",
     skills: [
       { name: "Node.js", icon: "/icons/nodejs.svg" },
-      { name: "PHP", icon: "/icons/php.svg" },
-      { name: "Laravel", icon: "/icons/laravel.svg" },
       { name: "Python", icon: "/icons/python.svg" },
       { name: "Prisma", icon: "/icons/prisma.svg" },
       { name: "PostgreSQL", icon: "/icons/postgresql.svg" },
     ],
   },
   {
-    titleKey: "devops",
+    key: "devops",
     skills: [
       { name: "Docker", icon: "/icons/docker.svg" },
       { name: "Linux", icon: "/icons/linux.svg" },
@@ -51,22 +55,61 @@ const skillGroups = [
     ],
   },
 ];
+const allSkills = skillGroups.flatMap((group) =>
+  group.skills.map((skill) => ({ key: group.key, ...skill }))
+);
 ---
 
-<section class="reveal flex flex-col gap-10 py-16 px-8" id="skills">
+<section class="reveal flex flex-col gap-6 py-16 px-8" id="skills">
   <h2 class="font-bold text-2xl">{t.title}</h2>
-  {
-    skillGroups.map((group) => (
-      <div class="flex flex-col gap-4">
-        <h3 class="text-lg font-semibold text-[#C8622E]">
-          {t.groups[group.titleKey]}
-        </h3>
-        <div class="grid grid-cols-2 gap-3 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
-          {group.skills.map((skill) => (
-            <SkillCard name={skill.name} icon={skill.icon} />
-          ))}
-        </div>
+
+  <div class="flex flex-wrap gap-2" role="group" aria-label="Skills filter">
+    {Object.entries(t.filters).map(([key, label]) => (
+      <button
+        type="button"
+        data-skill-filter={key}
+        class={`filter-btn border border-gray-300 dark:border-gray-600 rounded-full px-4 py-1.5 text-sm font-medium transition hover:border-[#C8622E] hover:text-[#C8622E] dark:text-[#FAF7F4] ${
+          key === "all" ? "active" : ""
+        }`}
+      >
+        {label}
+      </button>
+    ))}
+  </div>
+
+  <div class="grid grid-cols-2 gap-3 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6">
+    {allSkills.map((skill) => (
+      <div data-skill-group={skill.key}>
+        <SkillCard name={skill.name} icon={skill.icon} />
       </div>
-    ))
-  }
+    ))}
+  </div>
 </section>
+
+<script>
+  const skillFilterButtons = document.querySelectorAll(".filter-btn[data-skill-filter]");
+  const skillCards = document.querySelectorAll("[data-skill-group]");
+
+  skillFilterButtons.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      skillFilterButtons.forEach((b) => b.classList.remove("active"));
+      btn.classList.add("active");
+
+      const filter = btn.dataset.skillFilter;
+      skillCards.forEach((card) => {
+        card.classList.toggle(
+          "hidden",
+          filter !== "all" && card.dataset.skillGroup !== filter
+        );
+      });
+    });
+  });
+</script>
+
+<style>
+  .filter-btn.active {
+    background-color: #c8622e;
+    border-color: #c8622e;
+    color: #faf7f4;
+  }
+</style>

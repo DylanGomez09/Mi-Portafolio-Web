@@ -6,27 +6,38 @@ export interface Props {
   demoLink: string;
   stack?: string[];
   codeLink?: string;
+  featured?: boolean;
   t?: {
     view: string;
     code?: string;
+    featured?: string;
     previewAlt: string;
   };
 }
 
-const { title, description, image, demoLink, stack, codeLink, t } = Astro.props;
+const { title, description, image, demoLink, stack, codeLink, featured, t } = Astro.props;
+const isFeatured = featured ?? false;
 const viewText = t?.view ?? "Ver";
 const codeText = t?.code ?? "Código";
+const featuredText = t?.featured ?? "Destacado";
 const altText = t?.previewAlt?.replace("{title}", title) ?? `Vista previa de ${title}`;
 ---
 
 <article
-  class="bg-[#FAF7F4] dark:bg-[#1E1A17] rounded-xl p-6 transition duration-300 hover:-translate-y-1 hover:shadow-lg dark:hover:shadow-[#C8622E]/20 h-full flex flex-col"
+  class={`bg-[#FAF7F4] dark:bg-[#1E1A17] rounded-xl p-6 transition duration-300 hover:-translate-y-1 hover:shadow-lg dark:hover:shadow-[#C8622E]/20 h-full flex flex-col ${
+    isFeatured ? "featured-card" : ""
+  }`}
 >
   <div class="flex flex-col gap-6 flex-1">
     <div class="flex flex-col gap-4 grow">
-      <h3 class="text-xl font-semibold text-[#1A1614] dark:text-[#FAF7F4]">
-        {title}
-      </h3>
+      <div class="flex items-start justify-between gap-2">
+        <h3 class="text-xl font-semibold text-[#1A1614] dark:text-[#FAF7F4]">
+          {title}
+        </h3>
+        {isFeatured && (
+          <span class="card-badge">{featuredText}</span>
+        )}
+      </div>
       <p
         class="text-[#1A1614] dark:text-[#FAF7F4] text-sm md:text-base"
         set:html={description}
@@ -87,3 +98,29 @@ const altText = t?.previewAlt?.replace("{title}", title) ?? `Vista previa de ${t
     </div>
   </div>
 </article>
+
+<style>
+  .featured-card.featured-card {
+    box-shadow: 0 0 0 1px rgba(200, 98, 46, 0.4),
+      0 10px 30px rgba(200, 98, 46, 0.12);
+  }
+
+  .featured-card.featured-card:hover {
+    box-shadow: 0 0 0 2px rgba(200, 98, 46, 0.55),
+      0 14px 40px rgba(200, 98, 46, 0.25);
+  }
+
+  .card-badge {
+    flex-shrink: 0;
+    margin-top: 0.15rem;
+    background-color: #c8622e;
+    color: #faf7f4;
+    font-size: 0.7rem;
+    line-height: 1rem;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    padding: 0.2rem 0.6rem;
+    border-radius: 9999px;
+    white-space: nowrap;
+  }
+</style>

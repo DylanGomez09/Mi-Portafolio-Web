@@ -6,6 +6,7 @@ export interface Props {
     title: string;
     filters: {
       all: string;
+      saas: string;
       web: string;
       movil: string;
       ia: string;
@@ -40,7 +41,7 @@ const { t, cardT } = Astro.props;
         data-filter={key}
         class={`filter-btn border border-gray-300 dark:border-gray-600 rounded-full px-4 py-1.5 text-sm font-medium transition hover:border-[#C8622E] hover:text-[#C8622E] dark:text-[#FAF7F4] ${
           key === "all" ? "active" : ""
-        }`}
+        } ${key === "saas" ? "filter-btn-featured" : ""}`}
       >
         {label}
       </button>
@@ -61,6 +62,7 @@ const { t, cardT } = Astro.props;
           demoLink={project.demoLink}
           stack={project.stack}
           codeLink={project.codeLink}
+          featured={project.category === "saas"}
           t={cardT}
         />
       </div>
@@ -101,6 +103,20 @@ const { t, cardT } = Astro.props;
 </script>
 
 <style>
+  .filter-btn-featured.filter-btn-featured {
+    border-color: #c8622e;
+    color: #c8622e;
+    box-shadow: 0 0 0 1px rgba(200, 98, 46, 0.35) inset,
+      0 0 10px rgba(200, 98, 46, 0.15);
+  }
+
+  .filter-btn-featured.filter-btn-featured:hover {
+    border-color: #c8622e;
+    color: #faf7f4;
+    background-color: #c8622e;
+    box-shadow: 0 0 18px rgba(200, 98, 46, 0.55);
+  }
+
   .filter-btn.active {
     background-color: #c8622e;
     border-color: #c8622e;
