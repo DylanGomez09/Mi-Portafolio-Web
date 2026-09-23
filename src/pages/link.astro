@@ -1,0 +1,729 @@
+---
+import QRCode from "qrcode";
+import { Image } from "astro:assets";
+import perfil from "../assets/img-perfil.webp";
+
+const siteUrl = "https://www.dylangomez.online/link";
+const profileUrl = "https://www.dylangomez.online";
+const cvUrl = "/cv/CV_Dylan_Gomez_FullStack._2026.pdf";
+
+const qrDataUrl = await QRCode.toDataURL(siteUrl, {
+  width: 800,
+  margin: 2,
+  errorCorrectionLevel: "M",
+  color: { dark: "#17151A", light: "#EDEAE2" },
+});
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dylan Gómez | Enlaces</title>
+    <meta
+      name="description"
+      content="Contacto y enlaces de Dylan Gómez, Desarrollador Full Stack. Buenos Aires, Argentina."
+    />
+    <link rel="canonical" href={siteUrl} />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500..700;1,9..144,500..700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2317151A'/%3E%3Ctext x='32' y='42' font-family='system-ui' font-size='26' font-weight='700' fill='%23EDEAE2' text-anchor='middle'%3EDG%3C/text%3E%3C/svg%3E"
+    />
+    <meta name="theme-color" content="#17151A" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Dylan Gómez | Enlaces" />
+    <meta
+      property="og:description"
+      content="Contacto y enlaces de Dylan Gómez, Desarrollador Full Stack. Buenos Aires, Argentina."
+    />
+    <meta property="og:url" content={siteUrl} />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Dylan Gómez | Enlaces" />
+    <meta
+      name="twitter:description"
+      content="Contacto y enlaces de Dylan Gómez, Desarrollador Full Stack."
+    />
+  </head>
+  <body>
+    <div class="bg-motion" aria-hidden="true"><div class="orb"></div></div>
+
+    <main>
+      <Image
+        class="foto-img anim-in"
+        src={perfil}
+        width={300}
+        height={300}
+        fit="cover"
+        quality={90}
+        format="webp"
+        alt="Foto de Dylan Gómez"
+      />
+
+      <header class="anim-in">
+        <h1>Dylan Gómez</h1>
+        <p class="ubicacion">Desarrollador Full Stack</p>
+      </header>
+
+      <nav class="links" aria-label="Enlaces">
+        <a
+          class="link-btn"
+          href="https://www.linkedin.com/in/dylang%C3%B3mez09/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+            <path
+              d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854zm4.943 12.248V6.169H2.542v7.225zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248S2.4 3.226 2.4 3.934c0 .694.521 1.248 1.327 1.248zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016l.016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225z"
+            />
+          </svg>
+          <span class="label">LinkedIn</span>
+          <span class="arrow" aria-hidden="true">›</span>
+        </a>
+
+        <a
+          class="link-btn"
+          href={profileUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            <circle cx="12" cy="12" r="10"></circle>
+            <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"></path>
+            <path d="M2 12h20"></path>
+          </svg>
+          <span class="label">Web personal</span>
+          <span class="arrow" aria-hidden="true">›</span>
+        </a>
+
+        <a
+          class="link-btn"
+          href="https://github.com/DylanGomez09"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path
+              d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"
+            />
+          </svg>
+          <span class="label">GitHub</span>
+          <span class="arrow" aria-hidden="true">›</span>
+        </a>
+
+        <a class="link-btn" href="mailto:gomezdylan354@gmail.com" target="_blank" rel="noopener noreferrer">
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            <rect x="2" y="4" width="20" height="16" rx="2"></rect>
+            <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+          </svg>
+          <span class="label">gomezdylan354@gmail.com</span>
+          <span class="arrow" aria-hidden="true">›</span>
+        </a>
+
+        <a class="link-btn" id="download-cv" href={cvUrl} download target="_blank" rel="noopener noreferrer">
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+            <polyline points="7 10 12 15 17 10"></polyline>
+            <line x1="12" x2="12" y1="15" y2="3"></line>
+          </svg>
+          <span class="label">Descargar CV</span>
+          <span class="arrow" aria-hidden="true">›</span>
+        </a>
+      </nav>
+
+      <footer class="anim-in">
+        <button id="open-qr" class="qr-btn" type="button">
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            <rect width="5" height="5" x="3" y="3" rx="1"></rect>
+            <rect width="5" height="5" x="16" y="3" rx="1"></rect>
+            <rect width="5" height="5" x="3" y="16" rx="1"></rect>
+            <path d="M21 16h-3a2 2 0 0 0-2 2v3"></path>
+            <path d="M21 21v.01"></path>
+            <path d="M12 7v3a2 2 0 0 1-2 2H7"></path>
+            <path d="M3 12h.01"></path>
+            <path d="M12 3h.01"></path>
+            <path d="M12 16v.01"></path>
+            <path d="M16 12h1"></path>
+            <path d="M21 12v.01"></path>
+            <path d="M12 21v-1"></path>
+          </svg>
+          Ver mi QR
+        </button>
+
+        <p class="copyright">
+          © {new Date().getFullYear()}{" "}
+          <a href={profileUrl} target="_blank" rel="noopener noreferrer">Dylan Gómez</a>
+        </p>
+      </footer>
+    </main>
+
+    <div class="overlay" id="qr-overlay" role="dialog" aria-modal="true" aria-label="Código QR">
+      <div class="qr-card">
+        <button id="close-qr" class="qr-close" type="button" aria-label="Cerrar">
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            <line x1="18" x2="6" y1="6" y2="18"></line>
+            <line x1="6" x2="18" y1="6" y2="18"></line>
+          </svg>
+        </button>
+        <img class="qr" src={qrDataUrl} alt="Código QR de Dylan Gómez" />
+        <h2>Mi tarjeta digital</h2>
+        <p>Escaneá para ver mis enlaces y guardar mi contacto.</p>
+        <code class="qr-url">{siteUrl.replace("https://", "")}</code>
+      </div>
+    </div>
+
+    <script>
+      import Lenis from "lenis";
+
+      const overlay = document.getElementById("qr-overlay");
+      const openBtn = document.getElementById("open-qr");
+      const closeBtn = document.getElementById("close-qr");
+
+      const reduceMotion = window.matchMedia(
+        "(prefers-reduced-motion: reduce)"
+      ).matches;
+
+      let lenis = null;
+      if (!reduceMotion && window.innerWidth >= 768) {
+        lenis = new Lenis({
+          lerp: 0.09,
+          wheelMultiplier: 0.9,
+          smoothWheel: true,
+        });
+        const raf = (time) => {
+          lenis?.raf(time);
+          requestAnimationFrame(raf);
+        };
+        requestAnimationFrame(raf);
+      }
+
+      function open() {
+        overlay?.classList.add("open");
+        document.body.classList.add("no-scroll");
+        lenis?.stop();
+      }
+      function close() {
+        overlay?.classList.remove("open");
+        document.body.classList.remove("no-scroll");
+        lenis?.start();
+      }
+
+      openBtn?.addEventListener("click", open);
+      closeBtn?.addEventListener("click", close);
+      overlay?.addEventListener("click", (e) => {
+        if (e.target === overlay) close();
+      });
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") close();
+      });
+
+      const cvBtn = document.getElementById("download-cv");
+      cvBtn?.addEventListener("click", async (e) => {
+        e.preventDefault();
+        const label = cvBtn.querySelector(".label");
+        const original = label?.textContent;
+        label && (label.textContent = "Descargando…");
+        try {
+          const res = await fetch(cvBtn.href);
+          if (!res.ok) throw new Error("fetch error");
+          const blob = await res.blob();
+          const url = URL.createObjectURL(blob);
+          const a = document.createElement("a");
+          a.href = url;
+          a.download = "CV-Dylan-Gomez.pdf";
+          document.body.appendChild(a);
+          a.click();
+          a.remove();
+          URL.revokeObjectURL(url);
+        } catch {
+          window.open(cvBtn.href, "_blank", "noopener");
+        } finally {
+          label && (label.textContent = original);
+        }
+      });
+    </script>
+
+    <style is:global>
+      :root {
+        --fondo: #17151a;
+        --fondo-elev: #1d1a20;
+        --texto: #edeae2;
+        --texto-sec: #a29c92;
+        --texto-tenue: #6e6960;
+        --linea: #34303a;
+        --acento: #edeae2;
+        --acento-dark: #a29c92;
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      html,
+      body {
+        height: 100%;
+      }
+
+      html {
+        background: #17151a;
+      }
+
+      .bg-motion {
+        position: fixed;
+        inset: 0;
+        z-index: 0;
+        pointer-events: none;
+        overflow: hidden;
+      }
+
+      .bg-motion::before,
+      .bg-motion::after,
+      .bg-motion .orb {
+        content: "";
+        position: absolute;
+        width: 45vmax;
+        height: 45vmax;
+        border-radius: 50%;
+        filter: blur(45px);
+        will-change: transform, opacity;
+      }
+
+      .bg-motion .orb {
+        background: radial-gradient(
+          circle,
+          rgba(237, 234, 226, 0.13),
+          transparent 65%
+        );
+        top: 40%;
+        left: 55%;
+        animation: drift-c 14s ease-in-out infinite alternate;
+      }
+
+      @keyframes drift-c {
+        from {
+          transform: translate(0, 0) scale(1);
+          opacity: 0.55;
+        }
+        to {
+          transform: translate(-26vmax, 12vmax) scale(1.2);
+          opacity: 1;
+        }
+      }
+
+      .bg-motion::before {
+        background: radial-gradient(
+          circle,
+          rgba(237, 234, 226, 0.2),
+          transparent 65%
+        );
+        top: -20%;
+        left: -12%;
+        animation: drift-a 9s ease-in-out infinite alternate;
+      }
+
+      .bg-motion::after {
+        background: radial-gradient(
+          circle,
+          rgba(162, 156, 146, 0.18),
+          transparent 65%
+        );
+        bottom: -22%;
+        right: -8%;
+        animation: drift-b 11s ease-in-out infinite alternate;
+      }
+
+      @keyframes drift-a {
+        from {
+          transform: translate(0, 0) scale(1);
+          opacity: 0.55;
+        }
+        to {
+          transform: translate(30vmax, 22vmax) scale(1.3);
+          opacity: 1;
+        }
+      }
+
+      @keyframes drift-b {
+        from {
+          transform: translate(0, 0) scale(1);
+          opacity: 0.55;
+        }
+        to {
+          transform: translate(-26vmax, -20vmax) scale(1.35);
+          opacity: 1;
+        }
+      }
+
+      main > * {
+        position: relative;
+        z-index: 1;
+      }
+
+      body {
+        background: var(--fondo, #17151a);
+        color: var(--texto);
+        font-family: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI",
+          Roboto, sans-serif;
+        -webkit-font-smoothing: antialiased;
+        overflow-x: hidden;
+      }
+
+      body.no-scroll {
+        overflow: hidden;
+      }
+
+      main {
+        max-width: 520px;
+        margin: 0 auto;
+        padding: 56px 24px 32px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .anim-in {
+        opacity: 0;
+        animation: anim-in 0.7s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
+      }
+
+      .foto-img {
+        animation-delay: 0.05s;
+      }
+
+      header {
+        animation-delay: 0.15s;
+      }
+
+      .links .link-btn {
+        opacity: 0;
+        animation: anim-in 0.7s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
+      }
+
+      .links .link-btn:nth-child(1) {
+        animation-delay: 0.25s;
+      }
+
+      .links .link-btn:nth-child(2) {
+        animation-delay: 0.33s;
+      }
+
+      .links .link-btn:nth-child(3) {
+        animation-delay: 0.41s;
+      }
+
+      .links .link-btn:nth-child(4) {
+        animation-delay: 0.49s;
+      }
+
+      .links .link-btn:nth-child(5) {
+        animation-delay: 0.57s;
+      }
+
+      footer {
+        animation-delay: 0.65s;
+      }
+
+      @keyframes anim-in {
+        from {
+          opacity: 0;
+          transform: translateY(18px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .foto-img {
+        position: relative;
+        z-index: 80;
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 1px solid var(--linea);
+        margin-bottom: 18px;
+      }
+
+      header {
+        text-align: center;
+      }
+
+      h1 {
+        font-family: "Fraunces", Georgia, serif;
+        font-optical-sizing: auto;
+        font-size: 2.2rem;
+        font-weight: 650;
+        letter-spacing: -0.01em;
+      }
+
+      .ubicacion {
+        margin-top: 6px;
+        color: var(--texto-sec);
+        font-family: "IBM Plex Mono", ui-monospace, Consolas, monospace;
+        font-size: 1.1rem;
+        letter-spacing: 0.04em;
+      }
+
+      .links {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        margin-top: 26px;
+      }
+
+      .link-btn {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        width: 100%;
+        padding: 15px 18px;
+        border-radius: 14px;
+        background: var(--fondo-elev);
+        border: 1px solid var(--linea);
+        color: var(--texto);
+        text-decoration: none;
+        font-size: 0.95rem;
+        font-weight: 500;
+        transition: border-color 0.25s ease, background 0.25s ease,
+          transform 0.25s ease;
+      }
+
+      .link-btn:hover {
+        border-color: var(--acento);
+        background: #221e25;
+        transform: translateY(-2px);
+      }
+
+      .link-btn svg {
+        width: 20px;
+        height: 20px;
+        flex-shrink: 0;
+        color: var(--acento);
+      }
+
+      .link-btn span.label {
+        font-family: "IBM Plex Sans", sans-serif;
+      }
+
+      .link-btn .label {
+        flex: 1;
+        text-align: center;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+
+      .link-btn .arrow {
+        color: var(--texto-tenue);
+        font-size: 1.15rem;
+        line-height: 1;
+      }
+
+      footer {
+        margin-top: 26px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 14px;
+      }
+
+      .copyright {
+        font-family: "IBM Plex Mono", ui-monospace, Consolas, monospace;
+        font-size: 0.8rem;
+        letter-spacing: 0.04em;
+        color: var(--texto-tenue);
+      }
+
+      .copyright a {
+        color: var(--texto);
+        text-decoration: none;
+        transition: color 0.25s ease;
+      }
+
+      .copyright a:hover {
+        color: var(--texto-sec);
+      }
+
+      .qr-btn {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 13px 24px;
+        border-radius: 999px;
+        border: none;
+        background: var(--fondo-elev);
+        color: var(--texto);
+        font: inherit;
+        font-size: 0.95rem;
+        font-weight: 600;
+        cursor: pointer;
+        border: 1px solid var(--texto);
+        transition: background 0.25s ease, transform 0.25s ease;
+      }
+
+      .qr-btn:hover {
+        background: var(--texto);
+        color: var(--fondo);
+        transform: translateY(-2px);
+      }
+
+      .qr-btn svg {
+        width: 20px;
+        height: 20px;
+      }
+
+      .overlay {
+        position: fixed;
+        inset: 0;
+        z-index: 90;
+        background: transparent;
+        backdrop-filter: blur(6px);
+        -webkit-backdrop-filter: blur(6px);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 24px;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.25s ease, visibility 0.25s ease;
+      }
+
+      .overlay.open {
+        opacity: 1;
+        visibility: visible;
+      }
+
+      .qr-card {
+        position: relative;
+        background: var(--fondo-elev);
+        border: 1px solid var(--linea);
+        border-radius: 24px;
+        padding: 40px 28px 28px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 14px;
+        max-width: 340px;
+        width: 100%;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+      }
+
+      .qr {
+        width: 240px;
+        height: 240px;
+        border-radius: 16px;
+      }
+
+      .qr-card h2 {
+        font-size: 1.1rem;
+        font-weight: 600;
+      }
+
+      .qr-card p {
+        color: var(--texto-sec);
+        font-size: 0.9rem;
+        text-align: center;
+        line-height: 1.5;
+      }
+
+      .qr-url {
+        color: var(--texto-tenue);
+        font-family: "IBM Plex Mono", ui-monospace, "Cascadia Mono", Consolas,
+          monospace;
+        font-size: 0.78rem;
+      }
+
+      .qr-close {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        background: transparent;
+        border: none;
+        color: var(--texto-sec);
+        cursor: pointer;
+        padding: 8px;
+        border-radius: 8px;
+        transition: color 0.2s ease, background 0.2s ease;
+      }
+
+      .qr-close:hover {
+        color: var(--texto);
+        background: rgba(237, 234, 226, 0.06);
+      }
+
+      .qr-close svg {
+        width: 20px;
+        height: 20px;
+        display: block;
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .link-btn,
+        .qr-btn {
+          transition: none;
+        }
+        .bg-motion::before,
+        .bg-motion::after,
+        .bg-motion .orb {
+          animation: none;
+        }
+        .anim-in,
+        .links .link-btn {
+          opacity: 1;
+          animation: none;
+        }
+      }
+    </style>
+  </body>
+</html>
