@@ -1,9 +1,9 @@
 // Genera los assets de SEO que no se editan a mano:
 //   pnpm seo:assets
-// - public/og.jpg              Open Graph 1200×630
-// - public/icon-192.png        PWA / Android
-// - public/icon-512.png        PWA / Android (también maskable)
-// - public/apple-touch-icon.png  iOS 180×180
+// - public/images/og.jpg                 Open Graph 1200×630
+// - public/icons/icon-192.png            PWA / Android
+// - public/icons/icon-512.png            PWA / Android (también maskable)
+// - public/icons/apple-touch-icon.png    iOS 180×180
 import { readFile } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
 import sharp from 'sharp';
@@ -12,7 +12,7 @@ const root = fileURLToPath(new URL('..', import.meta.url));
 const asset = (path) => `${root}${path}`;
 
 // ——— Open Graph 1200×630 ———
-const portrait = await sharp(asset('public/hero-1200.webp'))
+const portrait = await sharp(asset('public/images/hero-1200.webp'))
   .resize(480, 630, { fit: 'cover', position: 'centre' })
   .toBuffer();
 
@@ -43,10 +43,10 @@ await sharp({
     { input: overlay, left: 0, top: 0 },
   ])
   .jpeg({ quality: 88, chromaSubsampling: '4:4:4', mozjpeg: true })
-  .toFile(asset('public/og.jpg'));
+  .toFile(asset('public/images/og.jpg'));
 
 // ——— Iconos desde el monograma DG ———
-const favicon = await readFile(asset('public/favicon.svg'));
+const favicon = await readFile(asset('public/icons/favicon.svg'));
 
 for (const [size, file] of [
   [180, 'apple-touch-icon.png'],
@@ -57,7 +57,9 @@ for (const [size, file] of [
     .resize(size, size, { fit: 'contain', background: '#050505' })
     .flatten({ background: '#050505' })
     .png({ compressionLevel: 9 })
-    .toFile(asset(`public/${file}`));
+    .toFile(asset(`public/icons/${file}`));
 }
 
-console.log('SEO assets generados: og.jpg, icon-192.png, icon-512.png, apple-touch-icon.png');
+console.log(
+  'SEO assets generados: images/og.jpg, icons/icon-192.png, icons/icon-512.png, icons/apple-touch-icon.png',
+);

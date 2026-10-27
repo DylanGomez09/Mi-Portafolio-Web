@@ -4,7 +4,7 @@ export const absoluteUrl = (path: string) => new URL(path, site.website).toStrin
 
 export const PERSON_ID = `${site.website}/#person`;
 export const WEBSITE_ID = `${site.website}/#website`;
-export const OG_IMAGE = absoluteUrl('/og.jpg');
+export const OG_IMAGE = absoluteUrl('/images/og.jpg');
 
 const KNOWS_ABOUT = [
   'Desarrollo web',

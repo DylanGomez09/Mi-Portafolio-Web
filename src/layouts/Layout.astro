@@ -23,7 +23,7 @@ const {
   title = `${site.name} — ${site.role} en Buenos Aires`,
   description =
     'Portfolio de Dylan Gómez, desarrollador Full Stack en Buenos Aires. Aplicaciones web y móviles, software a medida e IA para PyMEs y emprendedores.',
-  image = '/og.jpg',
+  image = '/images/og.jpg',
   imageAlt = 'Dylan Gómez, desarrollador full stack en Buenos Aires',
   noindex = false,
   preloadHero = true,
@@ -71,8 +71,10 @@ const bingVerification = (import.meta.env.PUBLIC_BING_SITE_VERIFICATION || '').t
     {googleVerification && <meta name="google-site-verification" content={googleVerification} />}
     {bingVerification && <meta name="msvalidate.01" content={bingVerification} />}
 
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/svg+xml" href="/icons/favicon.svg" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32.png" />
+    <link rel="icon" type="image/png" sizes="48x48" href="/icons/favicon-48.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png" />
     <link rel="manifest" href="/site.webmanifest" />
     <meta name="application-name" content={site.name} />
     <meta name="apple-mobile-web-app-title" content={site.name} />

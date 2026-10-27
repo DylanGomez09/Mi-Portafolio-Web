@@ -13,14 +13,15 @@ export const site = {
   linkedin: "https://www.linkedin.com/in/dylangomez09/",
   availability: "Disponible para proyectos",
   email: "gomezdylan354@gmail.com",
-  photo: "/about-1200.webp",
-  photoSrcset: "/about-600.webp 600w, /about-1200.webp 1200w",
+  photo: "/images/about-1200.webp",
+  photoSrcset: "/images/about-600.webp 600w, /images/about-1200.webp 1200w",
   photoSizes: "(min-width: 820px) 40vw, 100vw",
-  heroPhoto: "/hero-1200.webp",
-  heroPhotoSrcset: "/hero-800.webp 800w, /hero-1200.webp 1200w, /hero-2000.webp 2000w",
+  heroPhoto: "/images/hero-1200.webp",
+  heroPhotoSrcset:
+    "/images/hero-800.webp 800w, /images/hero-1200.webp 1200w, /images/hero-2000.webp 2000w",
   heroPhotoSizes:
     "(min-width: 820px) and (orientation: landscape) 40vw, (min-width: 820px) 72vw, 100vw",
-  avatar: "/avatar.jpg",
+  avatar: "/images/avatar.jpg",
 } as const;
 
 export const navLinks = [
@@ -246,4 +247,3 @@ export const processSteps: ProcessStep[] = [
     output: "Sistema en producción",
   },
 ];
-

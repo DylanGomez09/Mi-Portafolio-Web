@@ -33,24 +33,28 @@ Sitio local: `http://localhost:4321`.
 | `pnpm build`   | Genera el sitio estático en `dist/`.                                     |
 | `pnpm preview` | Sirve `dist/` localmente.                                                |
 | `pnpm check`   | Ejecuta `astro check` (TypeScript y componentes).                        |
-| `pnpm seo:assets`  | Regenera `og.jpg` e iconos PWA desde el monograma y el retrato.      |
+| `pnpm seo:assets`  | Regenera `images/og.jpg` e iconos PWA desde el monograma y el retrato. |
 | `pnpm seo:indexnow` | Avisa a Bing/Yandex las URLs del sitemap (después de deployar).    |
 
 ## Estructura
 
 ```text
 public/
-  favicon.svg
-  avatar.jpg            Recorte cuadrado para el navbar y /link (120×120)
-  about-600.webp        Retrato de Sobre mí (600×800)
-  about-1200.webp       Ídem en alta densidad (1200×1600)
-  hero-800.webp         Retrato del hero (800×1067)
-  hero-1200.webp        Ídem, tamaño por defecto (1200×1600)
-  hero-2000.webp        Ídem para pantallas retina (2000×2667)
-  og.jpg                Open Graph 1200×630 generado con Sharp
-  icon-192.png          Icono PWA / Android
-  icon-512.png          Icono PWA / Android (también maskable)
-  apple-touch-icon.png  Icono iOS 180×180
+  images/
+    avatar.jpg          Recorte cuadrado para el navbar y /link (120×120)
+    about-600.webp      Retrato de Sobre mí (600×800)
+    about-1200.webp     Ídem en alta densidad (1200×1600)
+    hero-800.webp       Retrato del hero (800×1067)
+    hero-1200.webp      Ídem, tamaño por defecto (1200×1600)
+    hero-2000.webp      Ídem para pantallas retina (2000×2667)
+    og.jpg              Open Graph 1200×630 generado con Sharp
+  icons/
+    favicon.svg         Favicon vectorial
+    favicon-32.png      Favicon PNG (32×32)
+    favicon-48.png      Favicon PNG (48×48)
+    icon-192.png        Icono PWA / Android
+    icon-512.png        Icono PWA / Android (también maskable)
+    apple-touch-icon.png  Icono iOS 180×180
   site.webmanifest      Manifest PWA
   llms.txt              Resumen del sitio para asistentes de IA
   <clave>.txt           Clave pública de IndexNow
@@ -83,12 +87,12 @@ astro.config.mjs      Sitemap con prioridades y `site` canónico
 
 Casi todo el texto vive en `src/data/portfolio.ts`. Para cambiar proyectos, skills, menciones o proceso, editá ese archivo.
 
-El hero usa tres variantes (`hero-800/1200/2000.webp`) generadas desde `assets/portrait-hero-source.webp`, y Sobre mí usa dos (`about-600/1200.webp`); la de 1200 también alimenta Open Graph. `avatar.jpg` es el recorte de 120×120 del navbar.
+El hero usa tres variantes (`hero-800/1200/2000.webp`) generadas desde `assets/portrait-hero-source.webp`, y Sobre mí usa dos (`about-600/1200.webp`); la de 1200 también alimenta Open Graph. `avatar.jpg` es el recorte de 120×120 del navbar. Las fotos y `og.jpg` viven en `public/images/`; favicons e iconos de plataforma, en `public/icons/`.
 
 Las rutas y los `srcset` viven en `src/data/portfolio.ts` (`photo*` y `heroPhoto*`). Si cambiás una foto, generá las variantes con Sharp, en escala de grises y con el ajuste tonal ya horneado, y dejá el original fuera de `public/` para no publicarlo:
 
 ```bash
-node -e "const sharp=require('sharp');sharp('assets/portrait-hero-source.webp').resize({width:1200}).grayscale().linear(1.28,-20).modulate({brightness:0.92}).webp({quality:64,effort:6}).toFile('public/hero-1200.webp')"
+node -e "const sharp=require('sharp');sharp('assets/portrait-hero-source.webp').resize({width:1200}).grayscale().linear(1.28,-20).modulate({brightness:0.92}).webp({quality:64,effort:6}).toFile('public/images/hero-1200.webp')"
 ```
 
 ### Contacto
@@ -120,7 +124,7 @@ Los heatmaps de Clarity tardan unos minutos y necesitan visitas reales. El aviso
 ### Qué está implementado
 
 - **Metadatos por página**: `title`, `description`, `author`, canonical absoluto, `lang="es-AR"`, `hreflang` `es-ar` / `x-default` y robots con `max-image-preview:large`. La 404 va con `noindex, nofollow`.
-- **Open Graph y Twitter Cards**: `og.jpg` 1200×630 con tipo, dimensiones y alt; `summary_large_image` para Twitter/X.
+- **Open Graph y Twitter Cards**: `images/og.jpg` 1200×630 con tipo, dimensiones y alt; `summary_large_image` para Twitter/X.
 - **Datos estructurados** (`src/lib/seo.ts`): `Person`, `WebSite`, `ProfilePage`, `ItemList` de proyectos, `BreadcrumbList`, `ProfessionalService` con catálogo de servicios y `FAQPage`. Todo se emite como JSON-LD en el `<head>`.
 - **Rastreo**: `robots.txt` con `Allow: /` y referencia al sitemap; `sitemap-index.xml` generado por `@astrojs/sitemap` con prioridades (home 1.0, servicios 0.9, link 0.5, privacidad 0.3) y `lastmod`.
 - **Contenido para IA**: `llms.txt` resume el perfil, los servicios y los enlaces.
