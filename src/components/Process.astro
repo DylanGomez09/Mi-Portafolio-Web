@@ -1,0 +1,61 @@
+---
+import { processSteps } from '../data/portfolio';
+import SectionHeading from './SectionHeading.astro';
+
+const total = String(processSteps.length).padStart(2, '0');
+---
+
+<section id="proceso" class="pb-20 pt-16 sm:pb-24 sm:pt-20 lg:pb-32 lg:pt-24">
+  <div class="container-editorial">
+    <SectionHeading
+      number="05"
+      title="Cómo trabajo"
+      label="Ciclo de vida"
+      description="Del relevamiento a producción, con el mismo método para web, móvil o IA. Seis etapas, sin cajas negras."
+    />
+
+    <div
+      class="grid grid-cols-1 gap-y-0 min-[820px]:grid-cols-2 min-[820px]:gap-x-8 min-[820px]:gap-y-10 lg:grid-cols-3 lg:gap-x-10"
+    >
+      {
+        processSteps.map((step, index) => (
+          <article
+            class="flex flex-col border-t border-line py-4 min-[820px]:h-full min-[820px]:py-0 min-[820px]:pt-5"
+            data-reveal
+            style={`--reveal-delay: ${Math.min(index * 55, 275)}ms;`}
+          >
+            <p class="meta flex items-center gap-2.5 min-[820px]:justify-between min-[820px]:gap-4">
+              <span class="flex min-w-0 items-center gap-2.5">
+                <span class="tabular-nums text-paper">{String(index + 1).padStart(2, '0')}</span>
+                <span class="h-px w-5 shrink-0 bg-line" aria-hidden="true" />
+                <span class="truncate tracking-[0.14em]">{step.phase}</span>
+              </span>
+              <span class="hidden shrink-0 text-secondary min-[820px]:inline">/ {total}</span>
+            </p>
+
+            <h3 class="mt-1.5 text-[1.05rem] font-extrabold leading-[1.15] tracking-[-0.02em] text-paper min-[820px]:mt-5 min-[820px]:text-[1.7rem] min-[820px]:leading-[1.05] min-[820px]:tracking-[-0.03em]">
+              {step.title}
+            </h3>
+
+            <p class="mt-1 max-w-sm text-pretty text-[0.95rem] leading-snug text-secondary min-[820px]:mt-3 min-[820px]:text-base min-[820px]:leading-relaxed">
+              {step.description}
+            </p>
+
+            <p class="mt-1.5 flex flex-wrap items-baseline gap-x-1.5 font-mono text-[0.6rem] uppercase leading-relaxed tracking-[0.12em] text-secondary min-[820px]:mt-auto min-[820px]:pt-7 min-[820px]:text-[0.62rem]">
+              <span>Entregable</span>
+              <span class="text-faint" aria-hidden="true">/</span>
+              <span class="text-paper/80">{step.output}</span>
+            </p>
+          </article>
+        ))
+      }
+    </div>
+
+    <p
+      class="mt-10 max-w-md text-pretty text-base leading-relaxed text-secondary min-[820px]:ml-auto"
+      data-reveal
+    >
+      Los cambios se evalúan y se suman al alcance con su impacto en tiempo y costo.
+    </p>
+  </div>
+</section>

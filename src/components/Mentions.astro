@@ -1,0 +1,47 @@
+---
+import { mentions } from '../data/portfolio';
+import Icon from './Icon.astro';
+import SectionHeading from './SectionHeading.astro';
+---
+
+<section id="menciones" class="pb-20 pt-16 sm:pb-24 sm:pt-20 lg:pb-32 lg:pt-24">
+  <div class="container-editorial">
+    <SectionHeading number="04" title="Menciones" label="Prensa y colaboraciones" />
+
+    <div class="grid grid-cols-1 gap-0 border-t border-line min-[820px]:grid-cols-2">
+      {
+        mentions.map((mention, index) => (
+          <article
+            class:list={[
+              'border-b border-line py-8 min-[820px]:py-10',
+              index === 0 ? 'min-[820px]:border-r min-[820px]:pr-10' : 'min-[820px]:pl-10',
+            ]}
+            data-reveal
+            style={`--reveal-delay: ${index * 90}ms;`}
+          >
+            <p class="meta">{mention.kind}</p>
+            <h3 class="mt-5 text-3xl font-extrabold tracking-[-0.035em] text-paper sm:text-4xl">
+              <a
+                href={mention.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="link-underline group/link inline-flex items-start gap-2"
+              >
+                {mention.outlet}
+                <Icon
+                  name="arrow-up-right"
+                  size={18}
+                  class="mt-1.5 shrink-0 text-secondary transition-transform duration-300 ease-editorial group-hover/link:-translate-y-0.5 group-hover/link:translate-x-1 group-hover/link:text-paper"
+                />
+                <span class="sr-only">(se abre en otra pestaña)</span>
+              </a>
+            </h3>
+            <p class="mt-4 max-w-md text-pretty text-base leading-relaxed text-secondary">
+              {mention.description}
+            </p>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>

@@ -1,0 +1,224 @@
+---
+import { projects, site } from '../data/portfolio';
+import Icon from './Icon.astro';
+
+const contactHref = site.email ? `mailto:${site.email}` : site.github;
+---
+
+<footer id="contacto" class="relative overflow-hidden pb-8 pt-16 sm:pt-20 lg:pt-24">
+  <div class="container-editorial">
+    <div class="section-rule" aria-hidden="true" data-reveal-rule></div>
+
+    <div
+      class="mt-5 flex flex-wrap items-center justify-between gap-3"
+      data-reveal
+      style="--reveal-delay: 60ms;"
+    >
+      <p class="meta">06 / Contacto</p>
+      <p class="meta inline-flex items-center gap-2 normal-case tracking-[0.08em]">
+        <span class="size-1.5 animate-pulse-dot rounded-full bg-paper" aria-hidden="true"></span>
+        {site.availability}
+      </p>
+    </div>
+
+    <h2
+      class="mt-10 max-w-6xl text-balance text-[clamp(2.8rem,8vw,7.6rem)] font-light leading-[0.94] tracking-[-0.055em] text-title"
+      data-reveal
+      style="--reveal-delay: 120ms;"
+    >
+      ¿Tenés un proyecto en mente?
+      <a
+        href={contactHref}
+        target={site.email ? undefined : '_blank'}
+        rel={site.email ? undefined : 'noopener noreferrer'}
+        data-umami-event="email-cta"
+        class="link-underline font-extrabold text-paper"
+      >
+        Hablemos.
+      </a>
+    </h2>
+
+    <p class="mt-6 max-w-md text-[1.05rem] leading-relaxed text-secondary" data-reveal style="--reveal-delay: 200ms;">
+      Contame qué tenés en mente y te respondo a la brevedad. Estoy abierto a proyectos,
+      colaboraciones y oportunidades dentro del desarrollo de software.
+    </p>
+
+    <div class="mt-14 grid grid-cols-2 gap-3 min-[820px]:grid-cols-12">
+      <a
+        href="/#proyectos"
+        class="card-bento group flex min-h-[160px] flex-col justify-between p-5 sm:p-6 min-[820px]:col-span-4"
+        data-reveal
+      >
+        <div class="flex items-center justify-between gap-3">
+          <span class="meta">Trabajo</span>
+          <Icon
+            name="arrow-up-right"
+            size={15}
+            class="text-secondary transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-paper"
+          />
+        </div>
+        <div class="flex items-end justify-between gap-3">
+          <span class="text-[1.45rem] font-extrabold tracking-[-0.035em] text-paper min-[380px]:text-[1.55rem]">Proyectos</span>
+          <span class="font-mono text-[0.68rem] text-secondary">
+            {String(projects.length).padStart(2, '0')}
+          </span>
+        </div>
+      </a>
+
+      <a
+        href={site.linkedin}
+        target="_blank"
+        rel="noopener noreferrer"
+        data-umami-event="linkedin"
+        class="card-bento group flex min-h-[160px] flex-col justify-between p-5 sm:p-6 min-[820px]:col-span-4"
+        data-reveal
+        style="--reveal-delay: 50ms;"
+      >
+        <div class="flex items-center justify-between gap-3">
+          <span class="meta">Red</span>
+          <Icon
+            name="linkedin"
+            size={15}
+            class="text-secondary transition-colors group-hover:text-paper"
+          />
+        </div>
+        <div>
+          <span class="block text-[1.55rem] font-extrabold tracking-[-0.035em] text-paper">LinkedIn</span>
+          <span class="mt-1 block font-mono text-[0.66rem] uppercase tracking-[0.08em] text-secondary">
+            /in/dylangomez09
+          </span>
+        </div>
+      </a>
+
+      <a
+        href={site.github}
+        target="_blank"
+        rel="noopener noreferrer"
+        data-umami-event="github"
+        class="card-bento group col-span-2 flex min-h-[180px] flex-col justify-between p-5 sm:p-6 min-[820px]:col-span-4"
+        data-reveal
+        style="--reveal-delay: 100ms;"
+      >
+        <div class="flex items-center justify-between gap-3">
+          <span class="meta">Código</span>
+          <Icon
+            name="github"
+            size={16}
+            class="text-secondary transition-colors group-hover:text-paper"
+          />
+        </div>
+        <div>
+          <span class="block text-[1.55rem] font-extrabold tracking-[-0.035em] text-paper">GitHub</span>
+          <span class="mt-1 block font-mono text-[0.66rem] uppercase tracking-[0.08em] text-secondary">
+            /DylanGomez09
+          </span>
+        </div>
+      </a>
+
+      <div
+        class="card-bento col-span-2 flex min-h-[180px] flex-col justify-between p-5 sm:p-6 min-[820px]:col-span-12"
+        data-clock
+        data-reveal
+        style="--reveal-delay: 150ms;"
+      >
+        <div class="flex items-center justify-between gap-3">
+          <span class="meta">{site.location}</span>
+          <span class="meta inline-flex items-center gap-2 normal-case tracking-[0.08em]">
+            <span class="size-1.5 animate-pulse-dot rounded-full bg-paper" aria-hidden="true"></span>
+            Hora local
+          </span>
+        </div>
+        <div class="flex flex-wrap items-end justify-between gap-4">
+          <time
+            class="font-mono text-[clamp(2.6rem,7vw,5.5rem)] font-medium leading-none tracking-[-0.06em] text-paper tabular-nums"
+            aria-label="Hora local en Buenos Aires"
+          >
+            <span data-clock-time>--:--</span>
+          </time>
+          <span class="pb-1 font-mono text-[0.66rem] uppercase tracking-[0.12em] text-secondary">
+            GMT−3 · Argentina
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <div class="relative mt-16 select-none sm:mt-20" aria-hidden="true" data-reveal>
+      <p class="footer-wordmark whitespace-nowrap text-center text-[clamp(6rem,29vw,25rem)] font-extrabold leading-[0.72] tracking-[-0.075em]">
+        Dylan
+      </p>
+      <div
+        class="pointer-events-none absolute inset-x-0 top-full h-[clamp(2.5rem,12vw,10rem)] overflow-hidden opacity-20 blur-[6px]"
+        style="-webkit-mask-image: linear-gradient(to bottom, black, transparent 72%); mask-image: linear-gradient(to bottom, black, transparent 72%);"
+      >
+        <p class="footer-wordmark whitespace-nowrap text-center text-[clamp(6rem,29vw,25rem)] font-extrabold leading-[0.72] tracking-[-0.075em]" style="transform: scaleY(-1);">
+          Dylan
+        </p>
+      </div>
+    </div>
+
+    <div
+      class="relative z-10 mt-20 flex flex-col gap-4 border-t border-line bg-ink py-6 sm:flex-row sm:items-center sm:justify-between"
+      data-reveal
+      style="--reveal-delay: 80ms;"
+    >
+      <div class="flex flex-col gap-1.5">
+        <p class="meta">© <span data-year>2026</span> Dylan Gómez</p>
+      </div>
+
+      <div class="flex flex-wrap items-center gap-5">
+        <a
+          href="/servicios/"
+          class="link-underline text-[0.8rem] text-secondary transition-colors hover:text-paper"
+        >
+          Servicios
+        </a>
+        <a
+          href={site.github}
+          target="_blank"
+          rel="noopener noreferrer"
+          data-umami-event="github"
+          class="link-underline text-[0.8rem] text-secondary transition-colors hover:text-paper"
+        >
+          GitHub
+        </a>
+        <a
+          href={site.linkedin}
+          target="_blank"
+          rel="noopener noreferrer"
+          data-umami-event="linkedin"
+          class="link-underline text-[0.8rem] text-secondary transition-colors hover:text-paper"
+        >
+          LinkedIn
+        </a>
+        <a
+          href={`mailto:${site.email}`}
+          data-umami-event="email"
+          class="link-underline text-[0.8rem] text-secondary transition-colors hover:text-paper"
+        >
+          Email
+        </a>
+        <a
+          href="/privacidad/"
+          class="link-underline text-[0.8rem] text-secondary transition-colors hover:text-paper"
+        >
+          Privacidad
+        </a>
+        <a
+          href={site.website}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="link-underline text-[0.8rem] text-secondary transition-colors hover:text-paper"
+        >
+          {site.domain}
+        </a>
+        <a
+          href="/#inicio"
+          class="inline-flex items-center gap-1.5 rounded-full border border-line px-3 py-1.5 text-[0.7rem] font-medium text-secondary transition-colors hover:border-paper/40 hover:text-paper"
+        >
+          Volver arriba
+          <Icon name="arrow-up" size={11} strokeWidth={1.8} />
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>

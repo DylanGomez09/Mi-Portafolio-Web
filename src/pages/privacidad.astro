@@ -1,0 +1,136 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { site } from '../data/portfolio';
+import { breadcrumbSchema, personSchema, webPageSchema, websiteSchema } from '../lib/seo';
+
+const updated = 'Octubre de 2026';
+const title = `Privacidad | ${site.name}`;
+const description = `Qué datos se miden en el portfolio de ${site.name}: Microsoft Clarity y Umami.`;
+
+const schema = [
+  personSchema,
+  websiteSchema,
+  webPageSchema({ path: '/privacidad/', name: title, description }),
+  breadcrumbSchema([
+    { name: 'Inicio', path: '/' },
+    { name: 'Privacidad', path: '/privacidad/' },
+  ]),
+];
+---
+
+<Layout title={title} description={description} preloadHero={false} schema={schema}>
+  <main id="contenido" class="relative z-10">
+    <div class="container-editorial py-16 sm:py-20">
+      <a
+        href="/"
+        class="link-underline text-[0.8rem] text-secondary transition-colors hover:text-paper"
+      >
+        Volver al portfolio
+      </a>
+
+      <p class="meta mt-12">Privacidad</p>
+      <h1
+        class="mt-3 max-w-3xl text-balance text-[clamp(2.4rem,7vw,4.6rem)] font-light leading-[0.96] tracking-[-0.05em] text-title"
+      >
+        Qué se mide en este sitio
+      </h1>
+      <p class="mt-6 max-w-xl text-[1.02rem] leading-relaxed text-secondary">
+        Uso dos herramientas para entender cómo se usa el portfolio. No vendo datos, no armo
+        perfiles publicitarios y no comparto información con terceros más allá de esos
+        proveedores.
+      </p>
+
+      <div class="mt-14 max-w-2xl space-y-10">
+        <section aria-labelledby="medicion">
+          <h2 id="medicion" class="text-[1.05rem] font-extrabold tracking-[-0.02em] text-paper">
+            Qué se mide
+          </h2>
+          <p class="mt-3 text-[0.98rem] leading-relaxed text-secondary">
+            Visitas, páginas vistas, sitio de origen, tipo de dispositivo, navegador, país
+            aproximado y clics en enlaces como proyectos, GitHub, LinkedIn o el email. Sirve para
+            saber qué secciones se leen y qué enlaces se usan.
+          </p>
+        </section>
+
+        <section aria-labelledby="clarity-info">
+          <h2 id="clarity-info" class="text-[1.05rem] font-extrabold tracking-[-0.02em] text-paper">
+            Microsoft Clarity
+          </h2>
+          <p class="mt-3 text-[0.98rem] leading-relaxed text-secondary">
+            Genera mapas de calor y grabaciones de sesión anónimas: movimientos del mouse, scroll
+            y clics. Usa las cookies <code class="font-mono text-[0.86em] text-paper">_clck</code> y
+            <code class="font-mono text-[0.86em] text-paper">_clsk</code>, y los datos se procesan
+            en servidores de Microsoft. El contenido sensible se enmascara y no se graban
+            contraseñas ni datos de formularios.
+          </p>
+          <p class="mt-3 text-[0.98rem] leading-relaxed text-secondary">
+            Podés leer la
+            <a
+              href="https://privacy.microsoft.com/privacystatement"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="link-underline text-paper transition-colors hover:text-secondary"
+            >
+              declaración de privacidad de Microsoft
+            </a>
+            .
+          </p>
+        </section>
+
+        <section aria-labelledby="umami-info">
+          <h2 id="umami-info" class="text-[1.05rem] font-extrabold tracking-[-0.02em] text-paper">
+            Umami
+          </h2>
+          <p class="mt-3 text-[0.98rem] leading-relaxed text-secondary">
+            Mide estadísticas agregadas sin cookies, sin identificadores personales y sin guardar
+            direcciones IP. No permite seguirte entre sitios. La política del proveedor está en
+            <a
+              href="https://umami.is/privacy"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="link-underline text-paper transition-colors hover:text-secondary"
+            >
+              umami.is/privacy
+            </a>
+            .
+          </p>
+        </section>
+
+        <section aria-labelledby="opciones">
+          <h2 id="opciones" class="text-[1.05rem] font-extrabold tracking-[-0.02em] text-paper">
+            Tus opciones
+          </h2>
+          <p class="mt-3 text-[0.98rem] leading-relaxed text-secondary">
+            Umami respeta la señal <span class="text-paper">Do Not Track</span> del navegador. Si
+            además querés evitar Clarity, podés bloquear scripts de
+            <span class="font-mono text-[0.9em] text-paper">clarity.ms</span> con una extensión o
+            en la configuración del navegador. Para consultar, corregir o pedir la eliminación de
+            datos, escribime y lo gestiono con el proveedor.
+          </p>
+        </section>
+
+        <section aria-labelledby="contacto-privacidad">
+          <h2
+            id="contacto-privacidad"
+            class="text-[1.05rem] font-extrabold tracking-[-0.02em] text-paper"
+          >
+            Contacto
+          </h2>
+          <p class="mt-3 text-[0.98rem] leading-relaxed text-secondary">
+            Responsable: {site.fullName}, {site.location}, Argentina.
+            <a
+              href={`mailto:${site.email}`}
+              class="link-underline text-paper transition-colors hover:text-secondary"
+            >
+              {site.email}
+            </a>
+          </p>
+        </section>
+      </div>
+
+      <p class="mt-16 border-t border-line pt-6 font-mono text-[0.6rem] uppercase tracking-[0.14em] text-secondary">
+        Última actualización: {updated}
+      </p>
+    </div>
+  </main>
+</Layout>

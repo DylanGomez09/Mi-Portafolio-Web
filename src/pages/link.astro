@@ -1,0 +1,268 @@
+---
+import QRCode from 'qrcode';
+import Layout from '../layouts/Layout.astro';
+import Icon from '../components/Icon.astro';
+import { site } from '../data/portfolio';
+import { breadcrumbSchema, personSchema, webPageSchema, websiteSchema } from '../lib/seo';
+
+const pageUrl = new URL(Astro.url.pathname, Astro.site ?? site.website).toString();
+const title = `${site.name} | Enlaces y contacto`;
+const description =
+  'Tarjeta digital de Dylan Gómez, desarrollador full stack en Buenos Aires. LinkedIn, GitHub, email y portfolio en un solo lugar.';
+
+const schema = [
+  personSchema,
+  websiteSchema,
+  webPageSchema({ path: '/link/', name: title, description }),
+  breadcrumbSchema([
+    { name: 'Inicio', path: '/' },
+    { name: 'Enlaces', path: '/link/' },
+  ]),
+];
+const qrDataUrl = await QRCode.toDataURL(pageUrl, {
+  width: 640,
+  margin: 3,
+  errorCorrectionLevel: 'M',
+  color: { dark: '#050505', light: '#F2F2F0' },
+});
+
+const links = [
+  {
+    icon: 'linkedin',
+    label: 'LinkedIn',
+    detail: '/in/dylangomez09',
+    href: site.linkedin,
+    external: true,
+  },
+  {
+    icon: 'github',
+    label: 'GitHub',
+    detail: '/DylanGomez09',
+    href: site.github,
+    external: true,
+  },
+  {
+    icon: 'mail',
+    label: 'Email',
+    detail: site.email,
+    href: `mailto:${site.email}`,
+    external: false,
+    lowercase: true,
+  },
+  {
+    icon: 'globe',
+    label: 'Portfolio',
+    detail: site.domain,
+    href: '/',
+    external: false,
+  },
+] as const;
+---
+
+<Layout title={title} description={description} preloadHero={false} schema={schema}>
+  <main
+    id="contenido"
+    class="relative z-10 flex min-h-screen flex-col items-center justify-center px-5 py-10 sm:px-8"
+  >
+    <div class="w-full max-w-[27rem]">
+      <header class="flex flex-col items-center text-center" data-reveal>
+        <img
+          src={site.avatar}
+          alt={`Retrato de ${site.name}`}
+          width="120"
+          height="120"
+          class="size-[4.5rem] rounded-full border border-edge object-cover"
+        />
+        <h1 class="mt-5 text-[2rem] font-extrabold leading-none tracking-[-0.045em] text-title">
+          {site.name}
+        </h1>
+        <p class="mt-2.5 font-mono text-[0.66rem] uppercase tracking-[0.18em] text-secondary">
+          {site.role}
+        </p>
+        <p class="mt-4 inline-flex items-center gap-2 font-mono text-[0.62rem] uppercase tracking-[0.14em] text-secondary">
+          <span class="size-1.5 animate-pulse-dot rounded-full bg-paper" aria-hidden="true"></span>
+          {site.availability}
+        </p>
+      </header>
+
+      <nav class="mt-9 flex flex-col gap-2.5" aria-label="Enlaces" data-reveal style="--reveal-delay: 60ms;">
+        {
+          links.map((link) => (
+            <a
+              href={link.href}
+              target={link.external ? '_blank' : undefined}
+              rel={link.external ? 'noopener noreferrer' : undefined}
+              data-umami-event={link.icon}
+              class="group flex items-center gap-4 rounded-2xl border border-edge bg-card px-4 py-3.5 transition-colors duration-300 ease-editorial hover:border-paper/25"
+            >
+              <span class="grid size-9 shrink-0 place-items-center rounded-full border border-edge text-secondary transition-colors duration-300 group-hover:text-paper">
+                <Icon name={link.icon} size={16} />
+              </span>
+              <span class="min-w-0 flex-1">
+                <span class="block text-[0.95rem] font-semibold leading-tight text-paper">
+                  {link.label}
+                </span>
+                <span
+                  class:list={[
+                    'mt-1 block truncate font-mono text-[0.65rem] tracking-[0.04em] text-secondary',
+                    !('lowercase' in link) && 'uppercase tracking-[0.1em]',
+                  ]}
+                >
+                  {link.detail}
+                </span>
+              </span>
+              <Icon
+                name="arrow-up-right"
+                size={15}
+                class="shrink-0 text-faint transition-colors duration-300 group-hover:text-paper"
+              />
+            </a>
+          ))
+        }
+      </nav>
+
+      <button
+        id="open-qr"
+        type="button"
+        data-umami-event="qr-open"
+        class="mt-3 flex w-full items-center justify-center gap-2.5 rounded-2xl border border-dashed border-edge px-4 py-3.5 font-mono text-[0.64rem] uppercase tracking-[0.14em] text-secondary transition-colors duration-300 hover:border-paper/30 hover:text-paper"
+        data-reveal
+        style="--reveal-delay: 100ms;"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="15"
+          height="15"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.6"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          aria-hidden="true"
+        >
+          <rect width="5" height="5" x="3" y="3" rx="1"></rect>
+          <rect width="5" height="5" x="16" y="3" rx="1"></rect>
+          <rect width="5" height="5" x="3" y="16" rx="1"></rect>
+          <path d="M21 16h-3a2 2 0 0 0-2 2v3"></path>
+          <path d="M21 21v.01"></path>
+          <path d="M12 7v3a2 2 0 0 1-2 2H7"></path>
+          <path d="M3 12h.01"></path>
+          <path d="M12 3h.01"></path>
+          <path d="M12 16v.01"></path>
+          <path d="M16 12h1"></path>
+          <path d="M21 12v.01"></path>
+          <path d="M12 21v-1"></path>
+        </svg>
+        Ver mi QR
+      </button>
+
+      <footer
+        class="mt-10 flex flex-col items-center gap-3 border-t border-line pt-6 text-center"
+        data-reveal
+        style="--reveal-delay: 140ms;"
+      >
+        <div class="flex items-center gap-5">
+          <a
+            href="/"
+            class="link-underline text-[0.8rem] text-secondary transition-colors hover:text-paper"
+          >
+            Volver al portfolio
+          </a>
+          <a
+            href="/privacidad/"
+            class="link-underline text-[0.8rem] text-secondary transition-colors hover:text-paper"
+          >
+            Privacidad
+          </a>
+        </div>
+        <p class="font-mono text-[0.6rem] uppercase tracking-[0.14em] text-secondary">
+          © <span data-year>2026</span> {site.name} · {site.location}
+        </p>
+      </footer>
+    </div>
+  </main>
+
+  <dialog
+    id="qr-dialog"
+    aria-labelledby="qr-title"
+    class="w-[min(20rem,calc(100vw-2rem))] rounded-[26px] border border-edge bg-card p-6 text-paper"
+  >
+    <div class="flex items-start justify-between gap-4">
+      <div>
+        <p class="meta">Tarjeta digital</p>
+        <h2 id="qr-title" class="mt-1.5 text-[1.15rem] font-extrabold tracking-[-0.02em] text-title">
+          Mi tarjeta digital
+        </h2>
+      </div>
+      <button
+        id="close-qr"
+        type="button"
+        aria-label="Cerrar"
+        class="grid size-8 shrink-0 place-items-center rounded-full border border-edge text-secondary transition-colors hover:border-paper/30 hover:text-paper"
+      >
+        <Icon name="close" size={15} />
+      </button>
+    </div>
+
+    <img
+      src={qrDataUrl}
+      alt={`Código QR con los enlaces de ${site.name}`}
+      width="640"
+      height="640"
+      class="mt-5 w-full rounded-xl border border-edge"
+    />
+
+    <p class="mt-4 text-sm leading-relaxed text-secondary">
+      Escaneá para abrir estos enlaces en otro dispositivo.
+    </p>
+    <code class="mt-1.5 block truncate font-mono text-[0.6rem] uppercase tracking-[0.1em] text-secondary">
+      {site.domain}/link
+    </code>
+  </dialog>
+
+  <script>
+    const dialog = document.getElementById('qr-dialog') as HTMLDialogElement | null;
+    const openButton = document.getElementById('open-qr');
+    const closeButton = document.getElementById('close-qr');
+
+    openButton?.addEventListener('click', () => dialog?.showModal());
+    closeButton?.addEventListener('click', () => dialog?.close());
+
+    dialog?.addEventListener('click', (event) => {
+      if (event.target === dialog) dialog.close();
+    });
+  </script>
+</Layout>
+
+<style>
+  dialog {
+    margin: auto;
+  }
+
+  dialog::backdrop {
+    background: rgb(5 5 5 / 0.84);
+    backdrop-filter: blur(5px);
+  }
+
+  dialog[open] {
+    animation: qr-in 220ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  @keyframes qr-in {
+    from {
+      opacity: 0;
+      transform: translateY(10px) scale(0.98);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    dialog[open] {
+      animation: none;
+    }
+  }
+</style>

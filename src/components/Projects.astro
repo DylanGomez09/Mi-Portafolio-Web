@@ -1,0 +1,165 @@
+---
+import { projectFilters, projects } from '../data/portfolio';
+import Icon from './Icon.astro';
+import SectionHeading from './SectionHeading.astro';
+
+const countFor = (filter: (typeof projectFilters)[number]) =>
+  filter === 'Todos'
+    ? projects.length
+    : projects.filter((project) => project.categories.includes(filter)).length;
+---
+
+<section id="proyectos" class="pb-20 pt-16 sm:pb-24 sm:pt-20 lg:pb-32 lg:pt-24">
+  <div class="container-editorial">
+    <SectionHeading number="03" title="Proyectos" label="Trabajo seleccionado" />
+
+    <div
+      class="mb-7 flex flex-col gap-4 sm:mb-9 sm:flex-row sm:items-center sm:justify-between"
+      data-reveal
+      style="--reveal-delay: 80ms;"
+    >
+      <div
+        class="hide-scrollbar -mx-1 flex gap-2 overflow-x-auto px-1 py-1"
+        role="group"
+        aria-label="Filtrar proyectos por categoría"
+      >
+        {
+          projectFilters.map((filter) => (
+            <button
+              type="button"
+              data-filter={filter}
+              data-active={filter === 'Todos' ? 'true' : 'false'}
+              aria-pressed={filter === 'Todos' ? 'true' : 'false'}
+              class="inline-flex shrink-0 items-center gap-2 rounded-full border border-paper/20 px-4 py-2 font-mono text-[0.66rem] uppercase tracking-[0.12em] text-secondary transition-colors duration-300 hover:border-paper/60 hover:text-paper data-[active=true]:border-paper data-[active=true]:bg-paper data-[active=true]:text-ink"
+            >
+              {filter}
+              <span class="tabular-nums opacity-55">{String(countFor(filter)).padStart(2, '0')}</span>
+            </button>
+          ))
+        }
+      </div>
+
+      <p class="meta" aria-live="polite">
+        <span data-project-count class="text-paper">{String(projects.length).padStart(2, '0')}</span>
+        proyectos
+      </p>
+    </div>
+
+    <div id="projects-list" class="border-t border-line">
+      {
+        projects.map((project, index) => (
+          <article
+            class="project-row group border-b border-line py-8 sm:py-10"
+            data-project-card
+            data-categories={project.categories.join(' ')}
+            data-reveal
+            style={`--reveal-delay: ${Math.min(index * 45, 180)}ms;`}
+          >
+            <div class="flex flex-wrap items-center justify-between gap-3">
+              <p class="meta flex items-center gap-2.5">
+                <span class="tabular-nums text-secondary">{String(index + 1).padStart(2, '0')}</span>
+                <span class="h-px w-6 bg-line" aria-hidden="true" />
+                {project.client && (
+                  <span class="size-1.5 shrink-0 rounded-full bg-paper" aria-label="Proyecto de cliente" />
+                )}
+                <span>{project.kind}</span>
+              </p>
+
+              {project.featured && (
+                <span class="rounded-full border border-paper/30 px-2.5 py-1 font-mono text-[0.58rem] uppercase tracking-[0.16em] text-paper">
+                  Destacado
+                </span>
+              )}
+            </div>
+
+            <div class="mt-4 grid grid-cols-1 gap-5 min-[820px]:grid-cols-12 min-[820px]:gap-8">
+              <div class="min-[820px]:col-span-5">
+                <h3 class="text-[clamp(1.8rem,4vw,3.2rem)] font-extrabold leading-[0.95] tracking-[-0.045em] text-paper">
+                  <span class="project-title">{project.title}</span>
+                </h3>
+              </div>
+
+              <div class="min-[820px]:col-span-7">
+                <p class="max-w-2xl text-pretty text-base leading-relaxed text-secondary">
+                  {project.description}
+                </p>
+
+                {project.tech.length > 0 && (
+                  <ul class="mt-4 flex flex-wrap gap-1.5" aria-label="Stack">
+                    {project.tech.map((tech) => (
+                      <li class="rounded-full border border-edge bg-card px-2.5 py-1 font-mono text-[0.6rem] uppercase tracking-[0.07em] text-secondary">
+                        {tech}
+                      </li>
+                    ))}
+                  </ul>
+                )}
+
+                {(project.demo || project.code) && (
+                  <div class="mt-5 flex flex-wrap items-center gap-3">
+                    {project.demo && (
+                      <a
+                        href={project.demo}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label={`Ver ${project.title} (se abre en otra pestaña)`}
+                        data-umami-event="proyecto-demo"
+                        data-umami-event-proyecto={project.title}
+                        class="inline-flex items-center gap-1.5 text-sm font-medium text-paper transition-colors hover:text-secondary"
+                      >
+                        Ver
+                        <Icon name="arrow-up-right" size={13} strokeWidth={2} />
+                      </a>
+                    )}
+                    {project.code && (
+                      <a
+                        href={project.code}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label={`Ver el código de ${project.title} en GitHub (se abre en otra pestaña)`}
+                        data-umami-event="proyecto-repo"
+                        data-umami-event-proyecto={project.title}
+                        class="inline-flex items-center gap-1.5 text-sm font-medium text-paper transition-colors hover:text-secondary"
+                      >
+                        Código
+                        <Icon name="github" size={13} strokeWidth={2} />
+                      </a>
+                    )}
+                  </div>
+                )}
+              </div>
+            </div>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<script>
+  const filterButtons = document.querySelectorAll<HTMLButtonElement>('[data-filter]');
+  const projectRows = document.querySelectorAll<HTMLElement>('[data-project-card]');
+  const countEl = document.querySelector<HTMLElement>('[data-project-count]');
+
+  const setFilter = (filter: string) => {
+    let visible = 0;
+
+    projectRows.forEach((row) => {
+      const categories = (row.dataset.categories ?? '').split(' ');
+      const match = filter === 'Todos' || categories.includes(filter);
+      row.hidden = !match;
+      if (match) visible += 1;
+    });
+
+    if (countEl) countEl.textContent = String(visible).padStart(2, '0');
+
+    filterButtons.forEach((button) => {
+      const active = button.dataset.filter === filter;
+      button.dataset.active = String(active);
+      button.setAttribute('aria-pressed', String(active));
+    });
+  };
+
+  filterButtons.forEach((button) => {
+    button.addEventListener('click', () => setFilter(button.dataset.filter ?? 'Todos'));
+  });
+</script>

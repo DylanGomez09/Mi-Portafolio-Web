@@ -1,0 +1,296 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+import Footer from '../components/Footer.astro';
+import Icon from '../components/Icon.astro';
+import { site } from '../data/portfolio';
+import { serviceAudiences, serviceFaqs, services, serviceSteps } from '../data/services';
+import {
+  breadcrumbSchema,
+  faqSchema,
+  personSchema,
+  servicesSchema,
+  webPageSchema,
+  websiteSchema,
+} from '../lib/seo';
+
+const title = 'Desarrollo web a medida en Buenos Aires | Dylan Gómez';
+const description =
+  'Aplicaciones web y móviles, software a medida, automatización con IA y sitios rápidos para PyMEs y emprendedores. Desde Buenos Aires, en remoto.';
+
+const schema = [
+  personSchema,
+  websiteSchema,
+  webPageSchema({ path: '/servicios/', name: title, description }),
+  breadcrumbSchema([
+    { name: 'Inicio', path: '/' },
+    { name: 'Servicios', path: '/servicios/' },
+  ]),
+  servicesSchema(services),
+  faqSchema(serviceFaqs),
+];
+
+const mailto = `mailto:${site.email}?subject=${encodeURIComponent('Consulta por un proyecto')}`;
+---
+
+<Layout title={title} description={description} preloadHero={false} schema={schema}>
+  <Navbar />
+
+  <main id="contenido">
+    <section id="inicio" class="relative pt-[72px] sm:pt-[84px]">
+      <div class="container-editorial pb-16 pt-12 sm:pb-20 sm:pt-16 lg:pt-24">
+        <div class="flex flex-wrap items-center gap-3" data-reveal>
+          <span class="meta">Servicios / 2026</span>
+          <span class="h-px w-8 bg-line" aria-hidden="true"></span>
+          <span class="meta">Buenos Aires · Remoto</span>
+        </div>
+
+        <h1
+          class="mt-8 max-w-4xl text-balance text-[clamp(2.6rem,8vw,6.4rem)] font-light leading-[0.94] tracking-[-0.055em] text-title"
+          data-reveal
+          style="--reveal-delay: 80ms;"
+        >
+          Software que ordena <span class="font-extrabold text-paper">tu negocio.</span>
+        </h1>
+
+        <p
+          class="mt-7 max-w-2xl text-pretty text-lg leading-relaxed text-secondary sm:text-xl"
+          data-reveal
+          style="--reveal-delay: 140ms;"
+        >
+          Diseño y construyo aplicaciones web y móviles, sistemas a medida y automatizaciones con
+          IA para PyMEs, profesionales y equipos que necesitan resultados concretos.
+        </p>
+
+        <div
+          class="mt-9 flex flex-wrap items-center gap-3"
+          data-reveal
+          style="--reveal-delay: 200ms;"
+        >
+          <a href={mailto} class="pill-primary" data-umami-event="email-cta">
+            Contame tu proyecto
+            <Icon name="arrow-up-right" size={15} strokeWidth={2} />
+          </a>
+          <a href="/#proyectos" class="pill">Ver proyectos</a>
+        </div>
+
+        <p
+          class="meta mt-7 inline-flex items-center gap-2 normal-case tracking-[0.08em]"
+          data-reveal
+          style="--reveal-delay: 240ms;"
+        >
+          <span class="size-1.5 animate-pulse-dot rounded-full bg-paper" aria-hidden="true"></span>
+          {site.availability}
+        </p>
+      </div>
+    </section>
+
+    <section class="pb-20 sm:pb-24" aria-labelledby="servicios">
+      <div class="container-editorial">
+        <SectionHeading
+          number="01"
+          title="Qué hago"
+          label="Servicios"
+          description="Un servicio por necesidad, no por tecnología. Si tu problema no encaja en ninguno, igual podemos hablarlo."
+        />
+
+        <div class="grid grid-cols-1 gap-3 min-[820px]:grid-cols-2">
+          {
+            services.map((service, index) => (
+              <article
+                class="card-bento flex flex-col justify-between gap-6 p-6 sm:p-7"
+                data-reveal
+                style={`--reveal-delay: ${index * 60}ms;`}
+              >
+                <div>
+                  <div class="flex items-start justify-between gap-4">
+                    <h3 class="text-[1.35rem] font-extrabold leading-tight tracking-[-0.03em] text-paper">
+                      {service.title}
+                    </h3>
+                    <span class="mt-1 font-mono text-[0.65rem] tabular-nums text-secondary">
+                      {String(index + 1).padStart(2, '0')}
+                    </span>
+                  </div>
+                  <p class="mt-3 text-[0.98rem] leading-relaxed text-secondary">
+                    {service.description}
+                  </p>
+                </div>
+                <ul class="flex flex-wrap gap-1.5" aria-label={`Incluye ${service.title}`}>
+                  {service.items.map((item) => (
+                    <li class="chip px-2.5 py-1 text-[0.6rem] normal-case tracking-[0.02em]">
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </article>
+            ))
+          }
+
+          <article
+            class="card-bento flex flex-col justify-between gap-8 p-6 sm:p-7"
+            data-reveal
+            style="--reveal-delay: 300ms;"
+          >
+            <p class="meta">Siguiente paso</p>
+            <div>
+              <h3 class="text-[1.35rem] font-extrabold leading-tight tracking-[-0.03em] text-paper">
+                ¿No sabés por dónde empezar?
+              </h3>
+              <p class="mt-3 text-[0.98rem] leading-relaxed text-secondary">
+                Contame el problema, aunque todavía no tengas la solución. Te ayudo a definir el
+                alcance y qué conviene construir primero.
+              </p>
+              <a
+                href={mailto}
+                class="mt-5 inline-flex items-center gap-1.5 text-sm font-medium text-paper transition-colors hover:text-secondary"
+                data-umami-event="email-cta"
+              >
+                Hablemos
+                <Icon name="arrow-up-right" size={13} strokeWidth={2} />
+              </a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="pb-20 sm:pb-24" aria-labelledby="para-quien">
+      <div class="container-editorial">
+        <SectionHeading number="02" title="Para quién trabajo" label="Perfiles" />
+
+        <ul class="border-t border-line">
+          {
+            serviceAudiences.map((item, index) => (
+              <li
+                class="flex items-start gap-5 border-b border-line py-6 sm:gap-8"
+                data-reveal
+                style={`--reveal-delay: ${index * 50}ms;`}
+              >
+                <span class="mt-0.5 font-mono text-[0.65rem] tabular-nums text-secondary">
+                  {String(index + 1).padStart(2, '0')}
+                </span>
+                <p class="max-w-2xl text-pretty text-[1.02rem] leading-relaxed text-paper">
+                  {item}
+                </p>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </section>
+
+    <section class="pb-20 sm:pb-24" aria-labelledby="como-trabajo">
+      <div class="container-editorial">
+        <SectionHeading
+          number="03"
+          title="Cómo trabajo"
+          label="Proceso"
+          description="Etapas cortas, entregables claros y demos que podés probar. Sin sorpresas al final."
+        />
+
+        <ol class="grid grid-cols-1 gap-3 min-[820px]:grid-cols-3">
+          {
+            serviceSteps.map((step, index) => (
+              <li
+                class="card-bento flex min-h-[210px] flex-col justify-between gap-8 p-6"
+                data-reveal
+                style={`--reveal-delay: ${index * 70}ms;`}
+              >
+                <div class="flex items-center justify-between gap-4">
+                  <span class="meta">Etapa {String(index + 1).padStart(2, '0')}</span>
+                  <span class="h-px w-8 bg-line" aria-hidden="true"></span>
+                </div>
+                <div>
+                  <h3 class="text-[1.2rem] font-extrabold tracking-[-0.025em] text-paper">
+                    {step.title}
+                  </h3>
+                  <p class="mt-2.5 text-[0.94rem] leading-relaxed text-secondary">
+                    {step.description}
+                  </p>
+                </div>
+              </li>
+            ))
+          }
+        </ol>
+      </div>
+    </section>
+
+    <section class="pb-20 sm:pb-24" aria-labelledby="preguntas">
+      <div class="container-editorial">
+        <SectionHeading
+          number="04"
+          title="Preguntas frecuentes"
+          label="Antes de empezar"
+          description="Lo que suelen preguntarme antes de arrancar un proyecto."
+        />
+
+        <div class="max-w-3xl border-t border-line">
+          {
+            serviceFaqs.map((faq, index) => (
+              <details
+                class="group border-b border-line py-5"
+                data-reveal
+                style={`--reveal-delay: ${index * 40}ms;`}
+              >
+                <summary class="flex cursor-pointer list-none items-center justify-between gap-5 text-[1.02rem] font-semibold leading-snug text-paper marker:content-none">
+                  {faq.question}
+                  <span
+                    class="grid size-7 shrink-0 place-items-center rounded-full border border-edge text-secondary transition-transform duration-300 ease-editorial group-open:rotate-45"
+                    aria-hidden="true"
+                  >
+                    <Icon name="plus" size={12} strokeWidth={2} />
+                  </span>
+                </summary>
+                <p class="mt-3 max-w-2xl pr-12 text-[0.96rem] leading-relaxed text-secondary">
+                  {faq.answer}
+                </p>
+              </details>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+
+    <section class="pb-20 sm:pb-24" aria-labelledby="contacto-servicios">
+      <div class="container-editorial">
+        <div class="card-bento p-7 sm:p-10 lg:p-12" data-reveal>
+          <p class="meta">Contacto</p>
+          <h2
+            id="contacto-servicios"
+            class="mt-4 max-w-2xl text-balance text-[clamp(2rem,5vw,3.6rem)] font-light leading-[0.98] tracking-[-0.045em] text-title"
+          >
+            Contame qué necesitás.
+          </h2>
+          <p class="mt-5 max-w-lg text-[1.02rem] leading-relaxed text-secondary">
+            Escribime con el problema o la idea, y te respondo con preguntas concretas y los
+            próximos pasos. Sin compromiso.
+          </p>
+          <div class="mt-8 flex flex-wrap items-center gap-4">
+            <a href={mailto} class="pill-primary" data-umami-event="email-cta">
+              Escribime
+              <Icon name="mail" size={15} strokeWidth={1.8} />
+            </a>
+            <a
+              href={site.linkedin}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-sm font-medium text-secondary transition-colors hover:text-paper"
+              data-umami-event="linkedin"
+            >
+              o por LinkedIn
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>
+
+<style>
+  summary::-webkit-details-marker {
+    display: none;
+  }
+</style>

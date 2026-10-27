@@ -1,0 +1,91 @@
+---
+import { hero, site } from '../data/portfolio';
+import Icon from './Icon.astro';
+---
+
+<section id="inicio" class="relative isolate min-h-[100svh] pt-[72px] sm:pt-[84px]">
+  <div
+    class="container-editorial relative z-10 flex min-h-[calc(100svh-72px)] flex-col justify-between gap-10 pb-8 pt-8 sm:min-h-[calc(100svh-84px)] sm:gap-14 sm:pb-10 sm:pt-12 lg:pt-16 min-[820px]:static"
+  >
+    <div data-parallax-text class="will-change-transform">
+      <div class="hero-eyebrow-anim flex flex-wrap items-center gap-3">
+        <span class="meta">Portfolio 2026</span>
+        <span class="h-px w-8 bg-line" aria-hidden="true"></span>
+        <span class="meta">{site.location}</span>
+      </div>
+
+      <h1 class="mt-4 font-sans tracking-[-0.06em] text-paper sm:mt-6">
+        <span
+          class="hero-text-anim block text-[clamp(5rem,13vw,13rem)] font-light leading-[0.77]"
+          style="--delay: 180ms;"
+        >
+          Dylan
+        </span>
+        <span
+          class="hero-text-anim block text-[clamp(5rem,13vw,13rem)] font-extrabold leading-[0.77]"
+          style="--delay: 280ms;"
+        >
+          Gómez
+        </span>
+        <span class="sr-only">— Desarrollador Full Stack en Buenos Aires</span>
+      </h1>
+
+      <p
+        class="hero-text-anim mt-5 max-w-xl text-pretty text-lg leading-tight text-paper sm:mt-7 sm:text-xl lg:text-2xl"
+        style="--delay: 420ms;"
+      >
+        Desarrollador Full Stack.<br />
+        <span class="text-secondary">{site.tagline}</span>
+      </p>
+    </div>
+
+    <!-- Retrato: placa 3:4 difuminada en los bordes.
+         En mobile va en flujo, debajo del nombre; en desktop se centra en el panel derecho. -->
+    <div class="hero-photo-wrap hero-photo-anim">
+      <div data-parallax-photo class="hero-photo-stage">
+        <div class="hero-photo-plate">
+          <!-- El recorte vive acá: en mobile la foto se amplía y se corre para
+               centrar al sujeto sin que el zoom arrastre el fundido. -->
+          <div class="hero-photo-crop">
+            <img
+              src={site.heroPhoto}
+              srcset={site.heroPhotoSrcset}
+              sizes={site.heroPhotoSizes}
+              alt="Dylan Gómez, desarrollador full stack en Buenos Aires"
+              width="1200"
+              height="1600"
+              loading="eager"
+              fetchpriority="high"
+              decoding="async"
+              class="hero-photo-img"
+            />
+          </div>
+        </div>
+      </div>
+
+      <!-- Fundidos de legibilidad: pie del hero y, en tablets verticales, columna de texto -->
+      <div class="hero-photo-scrim" aria-hidden="true"></div>
+      <div class="hero-photo-scrim-left" aria-hidden="true"></div>
+    </div>
+
+    <div class="hero-text-anim" style="--delay: 560ms;">
+      <div class="section-rule" aria-hidden="true"></div>
+
+      <div class="mt-5 grid grid-cols-1 gap-6 sm:mt-6 lg:grid-cols-12 lg:items-start lg:gap-8">
+        <p class="meta lg:col-span-2">{hero.index} / {hero.label}</p>
+
+        <p class="max-w-xl text-pretty text-base leading-relaxed text-secondary lg:col-span-5">
+          {hero.description}
+        </p>
+
+        <div class="flex flex-wrap items-center gap-3 lg:col-span-5 lg:justify-end">
+          <a href="#proyectos" class="pill-primary" data-umami-event="proyectos-cta">
+            Ver proyectos
+            <Icon name="arrow-down" size={15} strokeWidth={1.8} />
+          </a>
+          <a href="/servicios/" class="pill" data-umami-event="servicios-cta">Servicios</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,309 @@
+---
+import '@fontsource/inter-tight/latin-300.css';
+import '@fontsource/inter-tight/latin-400.css';
+import '@fontsource/inter-tight/latin-500.css';
+import '@fontsource/inter-tight/latin-600.css';
+import '@fontsource/inter-tight/latin-800.css';
+import '@fontsource/jetbrains-mono/latin-400.css';
+import '@fontsource/jetbrains-mono/latin-500.css';
+import '../styles/global.css';
+import { site } from '../data/portfolio';
+
+interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+  imageAlt?: string;
+  noindex?: boolean;
+  preloadHero?: boolean;
+  schema?: Record<string, unknown> | Record<string, unknown>[];
+}
+
+const {
+  title = `${site.name} — ${site.role} en Buenos Aires`,
+  description =
+    'Portfolio de Dylan Gómez, desarrollador Full Stack en Buenos Aires. Aplicaciones web y móviles, software a medida e IA para PyMEs y emprendedores.',
+  image = '/og.jpg',
+  imageAlt = 'Dylan Gómez, desarrollador full stack en Buenos Aires',
+  noindex = false,
+  preloadHero = true,
+  schema,
+} = Astro.props;
+
+const siteUrl = Astro.site ?? site.website;
+const canonical = new URL(Astro.url.pathname, siteUrl);
+const ogImage = new URL(image, siteUrl);
+const clarityId = (import.meta.env.PUBLIC_CLARITY_PROJECT_ID || 'z4geikxqh2').trim();
+const umamiId = (import.meta.env.PUBLIC_UMAMI_WEBSITE_ID || 'ab2fb03f-f691-442e-aee6-22185f2c4f18').trim();
+const googleVerification = (import.meta.env.PUBLIC_GOOGLE_SITE_VERIFICATION || '').trim();
+const bingVerification = (import.meta.env.PUBLIC_BING_SITE_VERIFICATION || '').trim();
+---
+
+<!doctype html>
+<html lang="es-AR" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="theme-color" content="#050505" />
+    <meta name="color-scheme" content="dark" />
+    <meta name="format-detection" content="telephone=no" />
+    <script is:inline>
+      document.documentElement.classList.add('js');
+    </script>
+
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="author" content={site.fullName} />
+    <meta
+      name="robots"
+      content={
+        noindex
+          ? 'noindex, nofollow'
+          : 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1'
+      }
+    />
+    <link rel="canonical" href={canonical} />
+    <link rel="alternate" hreflang="es-ar" href={canonical} />
+    <link rel="alternate" hreflang="x-default" href={canonical} />
+    <link rel="me" href={site.github} />
+    <link rel="me" href={site.linkedin} />
+    {googleVerification && <meta name="google-site-verification" content={googleVerification} />}
+    {bingVerification && <meta name="msvalidate.01" content={bingVerification} />}
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <meta name="application-name" content={site.name} />
+    <meta name="apple-mobile-web-app-title" content={site.name} />
+    {preloadHero && (
+      <link
+        rel="preload"
+        as="image"
+        href={site.heroPhoto}
+        imagesrcset={site.heroPhotoSrcset}
+        imagesizes={site.heroPhotoSizes}
+        fetchpriority="high"
+      />
+    )}
+
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="es_AR" />
+    <meta property="og:site_name" content={site.name} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:type" content="image/jpeg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content={imageAlt} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+    <meta name="twitter:image:alt" content={imageAlt} />
+
+    {schema && <script type="application/ld+json" set:html={JSON.stringify(schema)} />}
+
+    <!-- Microsoft Clarity: mapas de calor y grabaciones. Fuera del dominio productivo no carga nada. -->
+    <script is:inline define:vars={{ clarityId }} data-clarity-project={clarityId || undefined}>
+      (function (c, l, a, r, i, t, y) {
+        if (!i || l.location.hostname !== 'www.dylangomez.online') return;
+
+        var start = function () {
+          c[a] =
+            c[a] ||
+            function () {
+              (c[a].q = c[a].q || []).push(arguments);
+            };
+          t = l.createElement(r);
+          t.async = 1;
+          t.src = 'https://www.clarity.ms/tag/' + i;
+          y = l.getElementsByTagName(r)[0];
+          y.parentNode.insertBefore(t, y);
+        };
+
+        // Se carga en tiempo ocioso para no competir con el LCP del hero.
+        if ('requestIdleCallback' in c) c.requestIdleCallback(start, { timeout: 3500 });
+        else l.addEventListener('load', start, { once: true });
+      })(window, document, 'clarity', 'script', clarityId);
+    </script>
+
+    {
+      umamiId && (
+        <script
+          is:inline
+          defer
+          src="https://cloud.umami.is/script.js"
+          data-website-id={umamiId}
+          data-domains="www.dylangomez.online"
+          data-do-not-track="true"
+        />
+      )
+    }
+  </head>
+
+  <body class="relative min-h-screen bg-ink">
+    <a
+      href="#contenido"
+      class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[120] focus:rounded-full focus:bg-paper focus:px-5 focus:py-2.5 focus:text-sm focus:font-medium focus:text-ink"
+    >
+      Saltar al contenido
+    </a>
+
+    <div class="grain" aria-hidden="true"></div>
+    <div class="spotlight" aria-hidden="true" data-spotlight></div>
+
+    <slot />
+
+    <script>
+      const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      // ——— Aparición progresiva al hacer scroll ———
+      const revealTargets = document.querySelectorAll<HTMLElement>(
+        '[data-reveal], [data-reveal-rule]',
+      );
+
+      if (revealTargets.length) {
+        if (reduceMotion || !('IntersectionObserver' in window)) {
+          revealTargets.forEach((el) => el.classList.add('is-visible'));
+        } else {
+          const revealObserver = new IntersectionObserver(
+            (entries) => {
+              entries.forEach((entry) => {
+                if (!entry.isIntersecting) return;
+                entry.target.classList.add('is-visible');
+                revealObserver.unobserve(entry.target);
+              });
+            },
+            { threshold: 0.05, rootMargin: '0px 0px -4% 0px' },
+          );
+
+          revealTargets.forEach((el) => revealObserver.observe(el));
+        }
+      }
+
+      // ——— Reloj en vivo, Buenos Aires ———
+      const clockTargets = document.querySelectorAll<HTMLElement>('[data-clock]');
+      if (clockTargets.length) {
+        const timeZone = 'America/Argentina/Buenos_Aires';
+        const timeFormatter = new Intl.DateTimeFormat('es-AR', {
+          hour: '2-digit',
+          minute: '2-digit',
+          hourCycle: 'h23',
+          timeZone,
+        });
+
+        const tick = () => {
+          const time = timeFormatter.format(new Date());
+          clockTargets.forEach((clock) => {
+            const timeEl = clock.querySelector<HTMLElement>('[data-clock-time]');
+            if (timeEl) timeEl.textContent = time;
+            else clock.textContent = time;
+          });
+        };
+
+        tick();
+        window.setInterval(tick, 1000);
+      }
+
+      // ——— Header, parallax y scroll en un solo frame ———
+      const header = document.getElementById('site-header');
+      const hero = document.getElementById('inicio');
+      const parallaxPhoto = document.querySelector<HTMLElement>('[data-parallax-photo]');
+      const parallaxText = document.querySelector<HTMLElement>('[data-parallax-text]');
+
+      let heroHeight = hero?.offsetHeight ?? window.innerHeight;
+      let viewportHeight = Math.max(window.innerHeight, 1);
+      let headerThreshold = heroHeight * 0.55;
+      // El retrato sólo hace parallax en desktop: en mobile está en flujo.
+      let photoParallax = window.matchMedia('(min-width: 820px)').matches;
+      let scrollFrame = 0;
+
+      const updateScroll = () => {
+        scrollFrame = 0;
+
+        if (header) {
+          const nextValue = String(window.scrollY > headerThreshold);
+          if (header.dataset.pastHero !== nextValue) header.dataset.pastHero = nextValue;
+        }
+
+        if (reduceMotion || (!parallaxPhoto && !parallaxText)) return;
+
+        const progress = Math.min(window.scrollY / viewportHeight, 1);
+
+        // Fuera del hero no hay nada que mover: evitamos escrituras por frame.
+        if (progress >= 1) return;
+
+        if (parallaxPhoto) {
+          parallaxPhoto.style.transform = photoParallax
+            ? `translate3d(0, ${(progress * 46).toFixed(2)}px, 0)`
+            : '';
+        }
+        if (parallaxText) {
+          parallaxText.style.transform = `translate3d(0, ${(progress * 24).toFixed(2)}px, 0)`;
+        }
+      };
+
+      const requestScrollUpdate = () => {
+        if (!scrollFrame) scrollFrame = window.requestAnimationFrame(updateScroll);
+      };
+
+      const measureHero = () => {
+        heroHeight = hero?.offsetHeight ?? window.innerHeight;
+        viewportHeight = Math.max(window.innerHeight, 1);
+        headerThreshold = heroHeight * 0.55;
+        photoParallax = window.matchMedia('(min-width: 820px)').matches;
+        if (!photoParallax && parallaxPhoto) parallaxPhoto.style.transform = '';
+        requestScrollUpdate();
+      };
+
+      requestScrollUpdate();
+      window.addEventListener('scroll', requestScrollUpdate, { passive: true });
+      window.addEventListener('resize', measureHero, { passive: true });
+
+      if (hero && 'ResizeObserver' in window) {
+        new ResizeObserver(measureHero).observe(hero);
+      }
+
+      // ——— Spotlight que sigue al cursor ———
+      const spotlight = document.querySelector<HTMLElement>('[data-spotlight]');
+      const finePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+
+      if (spotlight && finePointer && !reduceMotion) {
+        let frame = 0;
+        let x = 0;
+        let y = 0;
+
+        const paintSpotlight = () => {
+          frame = 0;
+          spotlight.style.setProperty('--spotlight-x', `${x.toFixed(1)}px`);
+          spotlight.style.setProperty('--spotlight-y', `${y.toFixed(1)}px`);
+        };
+
+        window.addEventListener(
+          'pointermove',
+          (event) => {
+            x = event.clientX;
+            y = event.clientY;
+            spotlight.classList.add('is-active');
+            if (!frame) frame = window.requestAnimationFrame(paintSpotlight);
+          },
+          { passive: true },
+        );
+
+        document.addEventListener('pointerleave', () => {
+          spotlight.classList.remove('is-active');
+          if (frame) window.cancelAnimationFrame(frame);
+          frame = 0;
+        });
+      }
+
+      // ——— Año del footer ———
+      document.querySelectorAll<HTMLElement>('[data-year]').forEach((el) => {
+        el.textContent = String(new Date().getFullYear());
+      });
+    </script>
+  </body>
+</html>

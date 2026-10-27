@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+# Dylan Gómez — Portfolio
+# https://www.dylangomez.online
+
+Sitemap: https://www.dylangomez.online/sitemap-index.xml

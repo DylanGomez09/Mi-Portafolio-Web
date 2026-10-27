@@ -1,0 +1,77 @@
+---
+import { about, site } from '../data/portfolio';
+import SectionHeading from './SectionHeading.astro';
+import Icon from './Icon.astro';
+---
+
+<section id="sobre-mi" class="pb-20 pt-16 sm:pb-24 sm:pt-20 lg:pb-32 lg:pt-24">
+  <div class="container-editorial">
+    <SectionHeading number="01" title="Sobre mí" label="Perfil" />
+
+    <div class="grid grid-cols-1 gap-10 min-[820px]:grid-cols-12 min-[820px]:gap-12">
+      <div class="min-[820px]:col-span-7 lg:col-span-7">
+        <div class="max-w-2xl space-y-5">
+          {
+            about.paragraphs.map((paragraph, index) => (
+              <p
+                data-reveal
+                style={`--reveal-delay: ${index * 70}ms;`}
+                class:list={[
+                  'text-pretty leading-relaxed',
+                  index === 0
+                    ? 'text-xl font-light tracking-[-0.02em] text-title sm:text-2xl'
+                    : 'text-base text-secondary',
+                ]}
+              >
+                {paragraph}
+              </p>
+            ))
+          }
+        </div>
+
+        <ul
+          class="mt-8 flex flex-wrap gap-2.5"
+          aria-label="Áreas de trabajo"
+          data-reveal
+          style="--reveal-delay: 210ms;"
+        >
+          {
+            about.tags.map((tag) => (
+              <li class="chip px-3.5 py-2 text-[0.75rem] normal-case tracking-[0.02em]">{tag}</li>
+            ))
+          }
+        </ul>
+
+        <a
+          href="/servicios/"
+          class="link-underline mt-8 inline-flex items-center gap-1.5 text-sm font-medium text-paper transition-colors hover:text-secondary"
+          data-reveal
+          style="--reveal-delay: 250ms;"
+          data-umami-event="servicios-about"
+        >
+          Cómo puedo ayudarte
+          <Icon name="arrow-right" size={14} strokeWidth={2} />
+        </a>
+      </div>
+
+      <aside class="min-[820px]:col-span-5 lg:col-span-5">
+        <div class="min-[820px]:sticky min-[820px]:top-28">
+          <div class="overflow-hidden bg-card" data-reveal style="--reveal-delay: 100ms;">
+            <img
+              src={site.photo}
+              srcset={site.photoSrcset}
+              sizes={site.photoSizes}
+              alt="Dylan Gómez, desarrollador full stack en Buenos Aires"
+              width="1200"
+              height="1600"
+              loading="lazy"
+              decoding="async"
+              class="aspect-[3/4] h-full w-full object-cover object-[50%_20%]"
+            />
+          </div>
+          <p class="meta mt-3" data-reveal style="--reveal-delay: 180ms;">{site.location}</p>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>

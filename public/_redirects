@@ -1,0 +1,6 @@
+# Unifica el dominio: el apex redirige a www.
+https://dylangomez.online/*   https://www.dylangomez.online/:splat   301!
+
+# Rutas legacy del sitio anterior (version en ingles).
+/en    /   301
+/en/*  /   301

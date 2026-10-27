@@ -1,0 +1,31 @@
+# Dylan Gómez — Desarrollador Full Stack en Buenos Aires
+
+> Dylan Ezequiel Gómez es desarrollador full stack en Buenos Aires, Argentina. Diseña y construye aplicaciones web y móviles, software a medida, automatizaciones con inteligencia artificial y sitios rápidos para PyMEs, profesionales y emprendedores. Trabaja en remoto con clientes de Argentina y del exterior.
+
+## Páginas principales
+
+- [Inicio](https://www.dylangomez.online/): portfolio, perfil, stack, proyectos, menciones y proceso de trabajo.
+- [Servicios](https://www.dylangomez.online/servicios/): aplicaciones web a medida, apps móviles, automatización e IA, sitios y landings, evolución y soporte.
+- [Enlaces](https://www.dylangomez.online/link/): tarjeta digital con LinkedIn, GitHub, email y portfolio.
+- [Privacidad](https://www.dylangomez.online/privacidad/): qué datos se miden con Microsoft Clarity y Umami.
+
+## Servicios
+
+- Aplicaciones web a medida con React, Next.js, Astro, Node.js y PostgreSQL.
+- Apps móviles para iOS y Android con React Native y Expo.
+- Automatización e integración de IA (Gemini, Claude) en procesos concretos.
+- Sitios y landings con SEO técnico, Core Web Vitals y analítica.
+- Evolución, soporte y mantenimiento de sistemas en producción.
+
+## Contacto
+
+- Email: gomezdylan354@gmail.com
+- GitHub: https://github.com/DylanGomez09
+- LinkedIn: https://www.linkedin.com/in/dylangomez09/
+- Ubicación: Buenos Aires, Argentina (trabajo remoto)
+
+## Notas
+
+- Idioma del sitio: español (es-AR).
+- El sitio no publica CV ni datos de contacto telefónico.
+- Analítica: Microsoft Clarity (mapas de calor, sólo dominio productivo) y Umami Cloud (estadísticas sin cookies).

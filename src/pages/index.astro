@@ -1,0 +1,43 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Hero from '../components/Hero.astro';
+import About from '../components/About.astro';
+import Skills from '../components/Skills.astro';
+import Projects from '../components/Projects.astro';
+import Mentions from '../components/Mentions.astro';
+import Process from '../components/Process.astro';
+import Footer from '../components/Footer.astro';
+import {
+  personSchema,
+  profilePageSchema,
+  projectsItemListSchema,
+  websiteSchema,
+} from '../lib/seo';
+
+const title = 'Dylan Gómez — Desarrollador Full Stack en Buenos Aires';
+const description =
+  'Portfolio de Dylan Gómez, desarrollador Full Stack en Buenos Aires. Aplicaciones web y móviles, software a medida e IA para PyMEs y emprendedores.';
+
+const schema = [
+  personSchema,
+  websiteSchema,
+  profilePageSchema({ path: '/', name: title, description }),
+  projectsItemListSchema,
+];
+---
+
+<Layout title={title} description={description} schema={schema}>
+  <Navbar />
+
+  <main id="contenido">
+    <Hero />
+    <About />
+    <Skills />
+    <Projects />
+    <Mentions />
+    <Process />
+  </main>
+
+  <Footer />
+</Layout>

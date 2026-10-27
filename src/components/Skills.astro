@@ -1,0 +1,31 @@
+---
+import { skillGroups } from '../data/portfolio';
+import SectionHeading from './SectionHeading.astro';
+---
+
+<section id="skills" class="pb-20 pt-16 sm:pb-24 sm:pt-20 lg:pb-32 lg:pt-24">
+  <div class="container-editorial">
+    <SectionHeading number="02" title="Skills" label="Herramientas" />
+
+    <div class="border-t border-line">
+      {
+        skillGroups.map((group, index) => (
+          <div
+            class="grid grid-cols-1 gap-4 border-b border-line py-6 min-[820px]:grid-cols-12 min-[820px]:items-start min-[820px]:gap-8"
+            data-reveal
+            style={`--reveal-delay: ${Math.min(index * 60, 240)}ms;`}
+          >
+            <h3 class="meta normal-case tracking-[0.12em] text-paper min-[820px]:col-span-3 min-[820px]:pt-1.5">
+              {group.label}
+            </h3>
+            <ul class="flex flex-wrap gap-2.5 min-[820px]:col-span-9" aria-label={group.label}>
+              {group.items.map((item) => (
+                <li class="chip px-3.5 py-2 text-[0.75rem] normal-case tracking-[0.02em]">{item}</li>
+              ))}
+            </ul>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
